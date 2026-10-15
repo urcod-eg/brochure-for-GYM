@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>برنامج إدارة الچيم | urcod</title>
+<meta name="description" content="برنامج إدارة چيم متكامل: اشتراكات، حضور بالـ QR، خزنة وتقارير، مدربين، وتطبيق لكل مشترك باسم الچيم الخاص بك — من غير جوجل بلاي ولا آب ستور. اطلب نسختك التجريبية." />
+<meta name="theme-color" content="#0A0A0B" />
+<!-- WhatsApp / Facebook preview card. After publishing, put the full link of this page before assets/og.jpg -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="الچيم الخاص بك كله في جيبك — برنامج إدارة الچيم من urcod" />
+<meta property="og:description" content="اشتراكات، حضور QR، خزنة وتقارير، مدربين، وتطبيق باسم الچيم الخاص بك من غير متجر. اطلب نسخة تجريبية." />
+<meta property="og:image" content="assets/og.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="assets/gym-icon.png" />
+<style>
+/* Cairo & Bebas Neue (SIL Open Font License), served from this site — no outside requests */
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/cairo-arabic-400-normal.woff2') format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/cairo-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/cairo-arabic-700-normal.woff2') format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/cairo-latin-700-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 800; font-display: swap; src: url('assets/fonts/cairo-arabic-800-normal.woff2') format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 800; font-display: swap; src: url('assets/fonts/cairo-latin-800-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 900; font-display: swap; src: url('assets/fonts/cairo-arabic-900-normal.woff2') format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 900; font-display: swap; src: url('assets/fonts/cairo-latin-900-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Bebas Neue'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/bebas-neue-latin-400-normal.woff2') format('woff2'); }
+:root {
+  --black: #0a0a0b;
+  --ink: #121215;
+  --ink-2: #1a1a1f;
+  --line: rgba(255, 255, 255, 0.09);
+  --red: #e51c35;
+  --red-2: #ff3b52;
+  --yellow: #ffc21a;
+  --yellow-2: #ffd85c;
+  --white: #ffffff;
+  --muted: #b3b3bd;
+  --radius: 22px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Cairo', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { width: min(1180px, 100% - 32px); margin-inline: auto; }
+.en { font-family: 'Bebas Neue', 'Cairo', sans-serif; letter-spacing: 0.02em; }
+.y { color: var(--yellow); }
+.r { color: var(--red-2); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 54px; padding: 0 26px; border-radius: 999px;
+  font: 800 1rem 'Cairo', sans-serif; text-decoration: none; cursor: pointer; border: 0;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s;
+}
+.btn svg { width: 22px; height: 22px; flex: none; }
+.btn-red { background: var(--red); color: #fff; box-shadow: 0 14px 34px -12px rgba(229, 28, 53, 0.8); }
+.btn-red:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -10px rgba(229, 28, 53, 0.95); }
+.btn-yellow { background: var(--yellow); color: #111; box-shadow: 0 14px 34px -12px rgba(255, 194, 26, 0.7); }
+.btn-yellow:hover { transform: translateY(-2px); }
+.btn-ghost { background: rgba(255, 255, 255, 0.06); color: #fff; border: 1px solid var(--line); }
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.12); }
+.btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+/* ---------- nav ---------- */
+.nav {
+  position: fixed; inset-inline: 0; top: 0; z-index: 50;
+  transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+.nav.solid { background: rgba(10, 10, 11, 0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: var(--line); }
+.nav .wrap { display: flex; align-items: center; gap: 18px; min-height: 72px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand img { height: 30px; width: auto; }
+.nav-links { display: flex; gap: 22px; margin-inline-start: auto; }
+.nav-links a { text-decoration: none; color: var(--muted); font-weight: 700; font-size: 0.95rem; }
+.nav-links a:hover { color: #fff; }
+.nav .btn { min-height: 44px; padding: 0 18px; font-size: 0.92rem; }
+@media (max-width: 860px) { .nav-links { display: none; } .nav .btn { margin-inline-start: auto; } }
+
+/* ---------- hero ---------- */
+.hero { position: relative; min-height: 100svh; padding: 110px 0 60px; overflow: hidden; isolation: isolate; }
+.hero-bg { position: absolute; inset: 0; z-index: -1; }
+.hero-bg::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 55% at 28% 55%, rgba(229, 28, 53, 0.32), transparent 70%),
+    radial-gradient(40% 40% at 80% 20%, rgba(255, 194, 26, 0.12), transparent 70%),
+    linear-gradient(180deg, #0a0a0b 0%, #120809 60%, #0a0a0b 100%);
+}
+.stripes { position: absolute; inset: -40% -20%; transform: rotate(-24deg); opacity: 0.9; }
+.stripes span {
+  position: absolute; height: 22px; border-radius: 22px; left: -30%; width: 60%;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  filter: drop-shadow(0 0 18px rgba(229, 28, 53, 0.7));
+  animation: streak 7s linear infinite;
+}
+.stripes span:nth-child(2) { top: 38%; height: 10px; animation-duration: 5.5s; animation-delay: -2s; background: linear-gradient(90deg, transparent, var(--yellow), transparent); filter: drop-shadow(0 0 14px rgba(255, 194, 26, 0.6)); }
+.stripes span:nth-child(1) { top: 46%; }
+.stripes span:nth-child(3) { top: 54%; height: 6px; animation-duration: 9s; animation-delay: -4s; }
+.stripes span:nth-child(4) { top: 62%; height: 14px; animation-duration: 8s; animation-delay: -6s; opacity: 0.6; }
+@keyframes streak { from { transform: translateX(-60%); } to { transform: translateX(260%); } }
+.grain { position: absolute; inset: 0; opacity: 0.07; background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 3px 3px; mix-blend-mode: overlay; }
+
+.hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; }
+@media (max-width: 960px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } }
+.kicker {
+  display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border-radius: 999px;
+  background: rgba(255, 194, 26, 0.1); border: 1px solid rgba(255, 194, 26, 0.35); color: var(--yellow);
+  font-weight: 800; font-size: 0.9rem;
+}
+.kicker i { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 0 0 rgba(255, 194, 26, 0.7); animation: ping 1.8s infinite; }
+@keyframes ping { 70% { box-shadow: 0 0 0 10px rgba(255, 194, 26, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 194, 26, 0); } }
+h1 { font-size: clamp(2.2rem, 5vw, 3.9rem); line-height: 1.12; font-weight: 900; margin: 18px 0 16px; letter-spacing: -0.01em; }
+h1 .line { display: block; overflow: hidden; padding-bottom: 0.06em; }
+h1 .line > span { display: inline-block; transform: translateY(105%); animation: rise 0.9s var(--ease) forwards; }
+h1 .line:nth-child(2) > span { animation-delay: 0.15s; }
+h1 .line:nth-child(3) > span { animation-delay: 0.3s; }
+@keyframes rise { to { transform: translateY(0); } }
+.hl { position: relative; white-space: nowrap; }
+.hl::after {
+  content: ''; position: absolute; inset-inline: -4px; bottom: 0.08em; height: 0.28em; z-index: -1;
+  background: var(--red); border-radius: 4px; transform: scaleX(0); transform-origin: right; animation: mark 0.7s 1s var(--ease) forwards;
+}
+@keyframes mark { to { transform: scaleX(1); } }
+.lead { font-size: clamp(1.05rem, 2vw, 1.25rem); color: #e4e4ea; max-width: 34em; margin: 0 0 28px; opacity: 0; animation: fade 0.8s 0.5s forwards; }
+@media (max-width: 960px) { .lead { margin-inline: auto; } }
+@keyframes fade { to { opacity: 1; } }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; opacity: 0; animation: fade 0.8s 0.7s forwards; }
+@media (max-width: 960px) { .hero-cta { justify-content: center; } }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; opacity: 0; animation: fade 0.8s 0.9s forwards; }
+@media (max-width: 960px) { .chips { justify-content: center; } }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--line); font-size: 0.86rem; font-weight: 700; color: #dedee6; }
+.chip svg { width: 16px; height: 16px; color: var(--yellow); }
+
+/* phones */
+.stage { position: relative; height: 640px; }
+@media (max-width: 960px) { .stage { height: 560px; margin-top: 10px; } }
+@media (max-width: 520px) { .stage { height: 470px; } }
+.athlete {
+  position: absolute; inset-inline-start: 50%; bottom: 0; width: 82%; max-width: 520px; transform: translateX(50%);
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6)); opacity: 0.38; mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+}
+[dir='rtl'] .athlete { transform: translateX(50%); }
+.phone {
+  position: absolute; width: 238px; aspect-ratio: 600 / 1299; border-radius: 34px; padding: 9px;
+  background: linear-gradient(145deg, #2a2a30, #0c0c0e); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.08) inset, 0 0 60px -10px rgba(229, 28, 53, 0.35);
+}
+.phone::before { content: ''; position: absolute; top: 15px; left: 50%; width: 70px; height: 18px; transform: translateX(-50%); background: #050505; border-radius: 12px; z-index: 2; }
+.phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 26px; }
+.phone.p1 { inset-inline-start: 50%; top: 10px; transform: translateX(50%); z-index: 3; animation: float 6s ease-in-out infinite; }
+[dir='rtl'] .phone.p1 { transform: translateX(50%); }
+.phone.p2 { inset-inline-start: 4%; top: 90px; width: 200px; z-index: 2; transform: rotate(-8deg); animation: float2 7s ease-in-out infinite; opacity: 0.95; }
+.phone.p3 { inset-inline-end: 4%; top: 120px; width: 200px; z-index: 2; transform: rotate(8deg); animation: float3 6.5s ease-in-out infinite; opacity: 0.95; }
+@keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -14px; } }
+@keyframes float2 { 0%, 100% { translate: 0 0; } 50% { translate: 0 12px; } }
+@keyframes float3 { 0%, 100% { translate: 0 8px; } 50% { translate: 0 -10px; } }
+@media (max-width: 520px) {
+  .phone.p1 { width: 196px; }
+  .phone.p2, .phone.p3 { width: 150px; top: 80px; }
+  .phone.p2 { inset-inline-start: -2%; }
+  .phone.p3 { inset-inline-end: -2%; }
+}
+.badge-float {
+  position: absolute; z-index: 4; display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 16px;
+  background: rgba(18, 18, 21, 0.86); border: 1px solid var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-weight: 800; font-size: 0.86rem; box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.8); animation: float 5s ease-in-out infinite;
+}
+.badge-float b { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--yellow); color: #111; }
+.badge-float b svg { width: 20px; height: 20px; }
+.badge-float.ok b { background: #19c37d; color: #fff; }
+.badge-float.f1 { inset-inline-end: 0; bottom: 70px; animation-delay: -1s; }
+.badge-float.f2 { inset-inline-start: 0; bottom: 150px; animation-delay: -2.5s; }
+@media (max-width: 520px) { .badge-float { font-size: 0.74rem; padding: 8px 10px; } .badge-float b { width: 28px; height: 28px; } .badge-float.f2 { bottom: 110px; } .badge-float.f1 { bottom: 30px; } }
+
+/* ---------- marquee ---------- */
+.marquee { border-block: 1px solid var(--line); background: #0d0d10; overflow: hidden; padding: 16px 0; position: relative; }
+.marquee::before, .marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1; }
+.marquee::before { right: 0; background: linear-gradient(270deg, #0d0d10, transparent); }
+.marquee::after { left: 0; background: linear-gradient(90deg, #0d0d10, transparent); }
+.track { display: flex; gap: 40px; width: max-content; animation: marquee 38s linear infinite; }
+.track span { display: inline-flex; align-items: center; gap: 40px; font-weight: 800; font-size: 1.05rem; white-space: nowrap; color: #e9e9ef; }
+.track span::after { content: '✦'; color: var(--yellow); font-size: 0.9rem; }
+@keyframes marquee { to { transform: translateX(50%); } }
+
+/* ---------- sections ---------- */
+section { position: relative; }
+.sec { padding: 110px 0; }
+.sec-head { text-align: center; max-width: 780px; margin: 0 auto 54px; }
+.eyebrow { display: inline-block; color: var(--yellow); font-weight: 900; font-size: 0.9rem; letter-spacing: 0.04em; margin-bottom: 10px; }
+.eyebrow::before { content: ''; display: inline-block; width: 26px; height: 3px; background: var(--red); border-radius: 3px; vertical-align: middle; margin-inline-end: 10px; }
+h2 { font-size: clamp(1.9rem, 4.4vw, 3.1rem); line-height: 1.2; font-weight: 900; margin: 0 0 14px; }
+.sec-head p { color: var(--muted); font-size: 1.1rem; margin: 0; }
+
+.reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); transition-delay: var(--d, 0s); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* pain → fix cards */
+.pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 900px) { .pain-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .pain-grid { grid-template-columns: 1fr; } }
+.pain {
+  position: relative; padding: 26px 24px; border-radius: var(--radius); background: linear-gradient(160deg, #17171b, #0f0f12);
+  border: 1px solid var(--line); overflow: hidden; min-height: 210px;
+}
+.pain::before { content: ''; position: absolute; inset: 0; background: radial-gradient(80% 60% at 100% 0%, rgba(229, 28, 53, 0.16), transparent 70%); }
+.pain .q { position: relative; font-weight: 800; font-size: 1.12rem; color: #ffd0d6; display: inline; background-image: linear-gradient(var(--red-2), var(--red-2)); background-size: 0% 2px; background-repeat: no-repeat; background-position: 100% 55%; transition: background-size 0.7s var(--ease) 0.4s, color 0.4s 0.4s; }
+.pain.in .q { background-size: 100% 2px; color: #8f8f99; }
+.pain .a { position: relative; display: flex; gap: 12px; margin-top: 18px; opacity: 0; transform: translateY(12px); transition: all 0.6s var(--ease) 1s; }
+.pain.in .a { opacity: 1; transform: none; }
+.pain .a b { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--yellow); color: #111; }
+.pain .a b svg { width: 20px; height: 20px; }
+.pain .a span { font-weight: 700; color: #fff; }
+.pain .num { position: absolute; inset-inline-end: 18px; bottom: 6px; font-family: 'Bebas Neue'; font-size: 4.2rem; color: rgba(255, 255, 255, 0.05); line-height: 1; }
+
+/* no-store */
+.nostore { background: linear-gradient(180deg, #0a0a0b, #140b0d 50%, #0a0a0b); overflow: hidden; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+@media (max-width: 960px) { .split { grid-template-columns: 1fr; } }
+.install { position: relative; display: grid; place-items: center; min-height: 560px; }
+.home {
+  position: relative; width: 280px; aspect-ratio: 9 / 19; border-radius: 40px; padding: 12px;
+  background: linear-gradient(145deg, #2a2a30, #0c0c0e); box-shadow: 0 50px 90px -30px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+.home-screen {
+  position: relative; height: 100%; border-radius: 30px; overflow: hidden; padding: 48px 18px 18px;
+  background: radial-gradient(120% 80% at 20% 0%, #3a1018, #121216 60%), #121216;
+}
+.home-screen .time { position: absolute; top: 14px; inset-inline-start: 22px; font-weight: 800; font-size: 0.8rem; }
+.apps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px 10px; }
+.app { aspect-ratio: 1; border-radius: 14px; background: rgba(255, 255, 255, 0.1); }
+.app:nth-child(3n) { background: rgba(255, 255, 255, 0.06); }
+.app.gym { background: #101115 url('assets/gym-icon.png') center / cover; box-shadow: 0 0 0 2px var(--yellow), 0 10px 30px -6px rgba(255, 194, 26, 0.7); }
+.drop { animation: none; opacity: 0; }
+.install.in .drop { animation: drop 1.1s 0.9s cubic-bezier(0.3, 1.5, 0.5, 1) forwards; }
+@keyframes drop { 0% { opacity: 0; transform: translateY(-160px) scale(1.8) rotate(-20deg); } 70% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+.dock { position: absolute; inset-inline: 14px; bottom: 14px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 10px; border-radius: 20px; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(6px); }
+.app-label { grid-column: span 1; text-align: center; font-size: 0.6rem; color: #ddd; margin-top: -10px; opacity: 0; }
+.install.in .app-label { animation: fade 0.4s 1.9s forwards; }
+.link-pill {
+  position: absolute; top: 40px; inset-inline-start: 50%; transform: translateX(50%); z-index: 3; white-space: nowrap;
+  display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; background: #fff; color: #111; font-weight: 800; font-size: 0.85rem;
+  box-shadow: 0 16px 40px -14px rgba(0, 0, 0, 0.8); opacity: 0;
+}
+.install.in .link-pill { animation: pill 2.4s 0.1s forwards; }
+@keyframes pill { 0% { opacity: 0; translate: 0 20px; } 20%, 60% { opacity: 1; translate: 0 0; } 100% { opacity: 0; translate: 0 -30px; } }
+.link-pill svg { width: 18px; height: 18px; color: var(--red); }
+
+.steps { display: grid; gap: 14px; margin: 26px 0; }
+.step { display: flex; gap: 16px; align-items: flex-start; padding: 16px 18px; border-radius: 18px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); }
+.step b { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: var(--red); font-family: 'Bebas Neue'; font-size: 1.4rem; font-weight: 400; }
+.step strong { display: block; font-size: 1.05rem; }
+.step span { color: var(--muted); font-size: 0.95rem; }
+
+.compare { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); margin-top: 8px; font-size: 0.95rem; }
+.compare th, .compare td { padding: 14px 16px; text-align: start; border-bottom: 1px solid var(--line); vertical-align: top; }
+.compare thead th { background: #17171b; font-weight: 900; }
+.compare thead th:last-child { background: var(--red); }
+.compare td:first-child { color: var(--muted); font-weight: 700; width: 30%; }
+.compare td:nth-child(2) { color: #c9c9d1; }
+.compare td:last-child { background: rgba(229, 28, 53, 0.08); font-weight: 800; }
+.compare tr:last-child td { border-bottom: 0; }
+.tick { color: var(--yellow); }
+
+/* role tabs */
+.tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
+.tab { min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.04); color: #ddd; font: 800 0.98rem 'Cairo'; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.tab svg { width: 18px; height: 18px; }
+.tab[aria-selected='true'] { background: var(--yellow); color: #111; border-color: var(--yellow); box-shadow: 0 12px 30px -12px rgba(255, 194, 26, 0.7); }
+.panel { display: none; }
+.panel.on { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; animation: panelIn 0.6s var(--ease); }
+@media (max-width: 900px) { .panel.on { grid-template-columns: 1fr; } }
+@keyframes panelIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.panel h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.3; margin: 0 0 8px; font-weight: 900; }
+.panel > div > p { color: var(--muted); margin: 0 0 18px; }
+.ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.ticks li { display: flex; gap: 12px; align-items: flex-start; }
+.ticks li::before { content: ''; flex: none; width: 24px; height: 24px; margin-top: 3px; border-radius: 8px; background: var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center / 15px no-repeat; }
+.ticks b { color: var(--yellow); }
+.shot { position: relative; }
+.shot .desk { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.9), 0 0 80px -30px rgba(229, 28, 53, 0.5); }
+.shot .desk .bar { height: 30px; background: #1b1b20; display: flex; align-items: center; gap: 6px; padding-inline: 12px; }
+.shot .desk .bar i { width: 10px; height: 10px; border-radius: 50%; background: #3a3a42; }
+.shot .desk .bar i:first-child { background: var(--red); }
+.shot .desk .bar i:nth-child(2) { background: var(--yellow); }
+.shot .phones { display: flex; justify-content: center; gap: 18px; }
+.shot .phones .phone { position: relative; inset: auto; transform: none; width: min(46%, 240px); animation: none; }
+.shot .phones .phone:nth-child(2) { margin-top: 50px; }
+
+/* gallery */
+.gallery { overflow: hidden; padding-bottom: 10px; }
+.reel { display: flex; gap: 22px; width: max-content; animation: reel 60s linear infinite; padding: 10px 0 30px; }
+.gallery:hover .reel, .gallery:focus-within .reel { animation-play-state: paused; }
+@keyframes reel { to { transform: translateX(50%); } }
+.card-shot { width: 230px; flex: none; }
+.card-shot .phone { position: relative; inset: auto; width: 100%; transform: none; animation: none; }
+.card-shot p { margin: 14px 0 0; text-align: center; font-weight: 800; font-size: 0.98rem; }
+.card-shot p small { display: block; color: var(--muted); font-weight: 600; font-size: 0.85rem; }
+
+/* features bento */
+.bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 1000px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .bento { grid-template-columns: 1fr; } }
+.f {
+  position: relative; padding: 24px; border-radius: var(--radius); background: #121215; border: 1px solid var(--line); overflow: hidden;
+  transition: transform 0.35s var(--ease), border-color 0.35s;
+}
+.f:hover { transform: translateY(-6px); border-color: rgba(255, 194, 26, 0.45); }
+.f .ic { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 15px; background: rgba(229, 28, 53, 0.14); color: var(--red-2); margin-bottom: 16px; }
+.f .ic svg { width: 26px; height: 26px; }
+.f h4 { margin: 0 0 6px; font-size: 1.12rem; font-weight: 900; }
+.f p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.f.wide { grid-column: span 2; }
+@media (max-width: 560px) { .f.wide { grid-column: auto; } }
+.f.img { padding: 0; min-height: 280px; display: flex; align-items: flex-end; }
+.f.img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease); }
+.f.img:hover img { transform: scale(1.06); }
+.f.img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10, 10, 11, 0.95) 10%, rgba(10, 10, 11, 0.2) 60%, transparent); }
+.f.img .txt { position: relative; z-index: 1; padding: 24px; }
+.f.yellow { background: var(--yellow); color: #111; }
+.f.yellow p { color: #3a3000; }
+.f.yellow .ic { background: rgba(0, 0, 0, 0.12); color: #111; }
+
+/* counters */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 800px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+.stat { text-align: center; padding: 28px 12px; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(180deg, #141418, #0e0e11); }
+.stat .n { font-family: 'Bebas Neue'; font-size: clamp(3rem, 7vw, 4.6rem); line-height: 1; color: var(--yellow); }
+.stat .n small { font-size: 0.45em; color: #fff; margin-inline-start: 4px; }
+.stat p { margin: 8px 0 0; font-weight: 800; color: #e7e7ee; }
+
+/* security */
+.sec-red { background: radial-gradient(70% 70% at 15% 50%, rgba(229, 28, 53, 0.18), transparent 70%), #0b0b0d; }
+.shield { position: relative; display: grid; place-items: center; min-height: 420px; }
+.shield img { width: min(420px, 90%); border-radius: 28px; mask-image: radial-gradient(70% 70% at 50% 45%, #000 55%, transparent 100%); -webkit-mask-image: radial-gradient(70% 70% at 50% 45%, #000 55%, transparent 100%); }
+.ring { position: absolute; width: 360px; aspect-ratio: 1; border-radius: 50%; border: 2px dashed rgba(255, 194, 26, 0.35); animation: spin 30s linear infinite; }
+.ring.two { width: 440px; border-color: rgba(229, 28, 53, 0.3); animation-duration: 45s; animation-direction: reverse; }
+@media (max-width: 520px) { .ring { width: 280px; } .ring.two { width: 330px; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* trial */
+.trial {
+  position: relative; border-radius: 34px; padding: clamp(32px, 6vw, 70px); overflow: hidden; isolation: isolate;
+  background: linear-gradient(120deg, var(--yellow) 0%, #ffcf3f 45%, #ffb300 100%); color: #111;
+  display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; align-items: center;
+}
+@media (max-width: 860px) { .trial { grid-template-columns: 1fr; text-align: center; } }
+.trial::before { content: ''; position: absolute; inset: 0; z-index: -1; background: repeating-linear-gradient(-55deg, transparent 0 40px, rgba(0, 0, 0, 0.05) 40px 80px); animation: slide 12s linear infinite; }
+@keyframes slide { to { background-position: 400px 0; } }
+.trial h2 { color: #111; }
+.trial p { font-size: 1.15rem; font-weight: 700; margin: 0 0 22px; color: #2b2400; }
+.trial .btn-dark { background: #111; color: #fff; box-shadow: 0 16px 40px -14px rgba(0, 0, 0, 0.6); }
+.trial .btn-dark:hover { transform: translateY(-2px); }
+.trial img { width: 100%; max-width: 340px; margin-inline: auto; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.35)); animation: float 6s ease-in-out infinite; border-radius: 24px; }
+.trial-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+@media (max-width: 860px) { .trial-tags { justify-content: center; } }
+.trial-tags span { padding: 6px 14px; border-radius: 999px; background: rgba(0, 0, 0, 0.1); font-weight: 800; font-size: 0.9rem; }
+
+/* timeline */
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: s; }
+@media (max-width: 860px) { .timeline { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .timeline { grid-template-columns: 1fr; } }
+.tl { position: relative; padding: 26px 22px; border-radius: var(--radius); background: #121215; border: 1px solid var(--line); }
+.tl::before { counter-increment: s; content: '0' counter(s); font-family: 'Bebas Neue'; font-size: 3rem; line-height: 1; color: var(--red); display: block; margin-bottom: 10px; }
+.tl h4 { margin: 0 0 6px; font-size: 1.1rem; }
+.tl p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+/* faq */
+.faq { max-width: 860px; margin: 0 auto; display: grid; gap: 12px; }
+details { border-radius: 18px; background: #121215; border: 1px solid var(--line); overflow: hidden; }
+summary { list-style: none; cursor: pointer; padding: 20px 22px; font-weight: 800; font-size: 1.05rem; display: flex; gap: 12px; align-items: center; min-height: 56px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; margin-inline-start: auto; font-size: 1.6rem; color: var(--yellow); transition: transform 0.3s; line-height: 1; }
+details[open] summary::after { transform: rotate(45deg); }
+details p { margin: 0; padding: 0 22px 20px; color: var(--muted); }
+
+/* footer */
+footer { border-top: 1px solid var(--line); padding: 60px 0 110px; background: #070708; }
+.foot { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; align-items: center; }
+@media (max-width: 800px) { .foot { grid-template-columns: 1fr; text-align: center; } }
+.foot img { height: 54px; width: auto; }
+@media (max-width: 800px) { .foot img { margin-inline: auto; } }
+.dev { margin-top: 14px; color: var(--muted); }
+.dev strong { color: #fff; display: block; font-size: 1.15rem; }
+.contact { display: grid; gap: 10px; }
+.contact a { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 16px; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); text-decoration: none; font-weight: 800; transition: background 0.2s, transform 0.2s; }
+.contact a:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(-4px); }
+.contact a svg { width: 24px; height: 24px; flex: none; }
+.contact .ltr { direction: ltr; unicode-bidi: isolate; }
+.copy { margin-top: 36px; text-align: center; color: #6f6f78; font-size: 0.85rem; }
+
+/* floating whatsapp */
+.wa-float {
+  position: fixed; inset-inline-start: 18px; bottom: 18px; z-index: 60; width: 60px; height: 60px; border-radius: 50%;
+  display: grid; place-items: center; background: #25d366; color: #fff; box-shadow: 0 16px 34px -10px rgba(37, 211, 102, 0.8);
+  animation: bob 3s ease-in-out infinite;
+}
+.wa-float svg { width: 32px; height: 32px; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+/* scroll progress */
+.progress { position: fixed; top: 0; inset-inline: 0; height: 3px; z-index: 70; background: linear-gradient(90deg, var(--yellow), var(--red)); transform-origin: right; transform: scaleX(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+  h1 .line > span { transform: none; }
+  .lead, .hero-cta, .chips { opacity: 1; }
+  .drop, .app-label { opacity: 1; }
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2 22l5.36-1.4a9.8 9.8 0 0 0 4.68 1.2h.01c5.43 0 9.84-4.4 9.84-9.84A9.8 9.8 0 0 0 12.04 2Zm5.72 13.9c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.13.1-1.82-.12-.42-.13-.96-.31-1.65-.6-2.9-1.26-4.8-4.18-4.94-4.38-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.1.2-.14.31-.29.48-.14.17-.3.38-.43.5-.14.15-.29.3-.12.6.17.29.75 1.24 1.61 2 1.1.99 2.04 1.3 2.33 1.44.29.15.46.12.63-.07.17-.2.72-.84.92-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.93.29.15.48.22.55.34.07.12.07.7-.17 1.38Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></g></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></g></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></g></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h13v4"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16 13.5h2"/></g></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></g></symbol>
+  <symbol id="i-dumbbell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 7v10M3 9v6M18 7v10M21 9v6M6 12h12"/></g></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16V11a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 21h4"/></g></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8l4 4 5-7 5 7 4-4-2 11H5L3 8z"/></g></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></g></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></g></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></g></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-venus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="9" r="5"/><path d="M12 14v7M9 18h6"/></g></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></g></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></g></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.46h-4v-4.84c0-1.15-.02-2.64-1.6-2.64-1.62 0-1.86 1.26-1.86 2.56v4.92h-4v-11Z"/></symbol>
+  <symbol id="i-call" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l16 16"/><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M8 7a4 4 0 0 1 8 0"/></g></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="urcod"><img src="assets/urcod.png" alt="urcod" width="96" height="30" /></a>
+    <nav class="nav-links" aria-label="أقسام الصفحة">
+      <a href="#why">ليه برنامجنا</a>
+      <a href="#nostore">من غير متجر</a>
+      <a href="#roles">لكل واحد في الچيم</a>
+      <a href="#screens">الشاشات</a>
+      <a href="#faq">أسئلة</a>
+    </nav>
+    <a class="btn btn-red wa-link" href="#" data-msg="أهلًا، عايز نسخة تجريبية من برنامج إدارة الچيم"><svg><use href="#i-wa"/></svg>نسخة تجريبية</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="stripes"><span></span><span></span><span></span><span></span></div>
+      <div class="grain"></div>
+    </div>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker"><i></i>برنامج إدارة الچيمات من urcod</span>
+        <h1>
+          <span class="line"><span>الچيم الخاص بك كله في جيبك.</span></span>
+          <span class="line"><span>من غير <span class="hl">كشكول</span>…</span></span>
+          <span class="line"><span class="y">ومن غير جوجل بلاي.</span></span>
+        </h1>
+        <p class="lead">اشتراكات، حضور بكود QR، خزنة وتقارير، مدربين وبرامج، وتطبيق لكل مشترك <strong>باسم الچيم الخاص بك ولوجو بتاعك</strong> — بلينك واحد يتثبت على أي موبايل في ثواني، وتحديثاته بتوصل لوحدها.</p>
+        <div class="hero-cta">
+          <a class="btn btn-red wa-link" href="#" data-msg="أهلًا، عايز أجرب برنامج إدارة الچيم على چيمي"><svg><use href="#i-wa"/></svg>اطلب نسختك التجريبية</a>
+          <a class="btn btn-ghost" href="#screens">شوف البرنامج شغال</a>
+        </div>
+        <div class="chips">
+          <span class="chip"><svg><use href="#i-phone"/></svg>أندرويد · آيفون · كمبيوتر</span>
+          <span class="chip"><svg><use href="#i-refresh"/></svg>تحديثات أوتوماتيك</span>
+          <span class="chip"><svg><use href="#i-shield"/></svg>حماية على مستوى السيرفر</span>
+        </div>
+      </div>
+      <div class="stage" aria-hidden="true">
+        <img class="athlete" src="assets/cut-ropes.webp" alt="" />
+        <div class="phone p2"><img src="assets/m-card.webp" alt="" /></div>
+        <div class="phone p1"><img src="assets/m-home.webp" alt="" /></div>
+        <div class="phone p3"><img src="assets/m-workout.webp" alt="" /></div>
+        <div class="badge-float ok f1"><b><svg><use href="#i-check"/></svg></b>دخول مقبول · أحمد علي</div>
+        <div class="badge-float f2"><b><svg><use href="#i-wallet"/></svg></b>تحصيل النهارده 8,650 ج.م</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track" id="track">
+      <span>اشتراكات وتجديد</span><span>حضور بكود QR</span><span>عربون ومتبقي</span><span>تقفيل خزنة</span><span>تقارير شهرية</span><span>برامج تمرين وتغذية</span><span>تنبيهات للمشتركين</span><span>VIP وعروض</span><span>مواعيد سيدات</span><span>صلاحيات لكل موظف</span><span>سجل تدقيق</span><span>تصدير Excel</span>
+    </div>
+  </div>
+
+  <!-- ================= PAIN ================= -->
+  <section class="sec" id="why">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">مشاكل كل چيم</span>
+        <h2>لو الچيم الخاص بك فيه واحدة من دول…<br /><span class="r">إنت بتخسر فلوس كل يوم.</span></h2>
+        <p>شطبناها واحدة واحدة. ده اللي البرنامج بيعمله مكانك.</p>
+      </div>
+      <div class="pain-grid">
+        <article class="pain reveal" style="--d:0s"><span class="q">اشتراكات بتخلص ومحدش واخد باله</span><div class="a"><b><svg><use href="#i-check"/></svg></b><span>البرنامج بيقولك مين هيخلص الأسبوع ده، وتبعتله تذكير واتساب بضغطة.</span></div><span class="num en">01</span></article>
+        <article class="pain reveal" style="--d:.08s"><span class="q">الكارنيه بيتسلف لصاحبه</span><div class="a"><b><svg><use href="#i-check"/></svg></b><span>كود دخول QR بيتغيّر كل 45 ثانية وبيتقبل مرة واحدة بس.</span></div><span class="num en">02</span></article>
+        <article class="pain reveal" style="--d:.16s"><span class="q">الخزنة مش مظبوطة آخر اليوم</span><div class="a"><b><svg><use href="#i-check"/></svg></b><span>كل إيصال باسم الكاشير اللي قبضه، وتقفيل خزنة يكشف العجز والزيادة.</span></div><span class="num en">03</span></article>
+        <article class="pain reveal" style="--d:.24s"><span class="q">عربون اتدفع والباقي اتنسى</span><div class="a"><b><svg><use href="#i-check"/></svg></b><span>المتبقي بميعاد، والدخول بيقف لوحده لو اتأخر — إلا بإذن منك.</span></div><span class="num en">04</span></article>
+        <article class="pain reveal" style="--d:.32s"><span class="q">الكوتش مش متابع المتدربين</span><div class="a"><b><svg><use href="#i-check"/></svg></b><span>برنامج تمرين وتغذية لكل متدرب، ومتابعة الوزن والالتزام أسبوع بأسبوع.</span></div><span class="num en">05</span></article>
+        <article class="pain reveal" style="--d:.4s"><span class="q">مش عارف كسبت كام الشهر ده</span><div class="a"><b><svg><use href="#i-check"/></svg></b><span>تقرير شهري بالتحصيل والمصروفات وصافي الربح، وتصدير Excel لكل حاجة.</span></div><span class="num en">06</span></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NO STORE ================= -->
+  <section class="sec nostore" id="nostore">
+    <div class="wrap split">
+      <div class="reveal">
+        <span class="eyebrow">الفرق اللي محدش بيقولك عليه</span>
+        <h2>تطبيق باسم الچيم الخاص بك…<br /><span class="y">من غير ما تستنى موافقة حد.</span></h2>
+        <p style="color:var(--muted);margin:0">مفيش جوجل بلاي ولا آب ستور في النص. مفيش «التحديث تحت المراجعة». مفيش «نزّل التحديث الجديد». المشترك بيفتح اللينك مرة، والتطبيق يفضل على موبايله بأيقونة الچيم الخاص بك.</p>
+        <div class="steps">
+          <div class="step"><b>1</b><div><strong>تبعتله اللينك على واتساب</strong><span>أول ما تسجله، البرنامج بيجهز الرسالة بكلمة السر لوحده.</span></div></div>
+          <div class="step"><b>2</b><div><strong>يفتحه ويدوس «إضافة للشاشة الرئيسية»</strong><span>ثواني، من غير ما ينزّل حاجة تقيلة على موبايله.</span></div></div>
+          <div class="step"><b>3</b><div><strong>أيقونة الچيم الخاص بك على موبايله للأبد</strong><span>بتفتح زي أي تطبيق، وكل تحديث بيوصله أوتوماتيك.</span></div></div>
+        </div>
+      </div>
+      <div class="install reveal" id="install" aria-hidden="true">
+        <div class="link-pill"><svg><use href="#i-link"/></svg>your-gym.github.io</div>
+        <div class="home">
+          <div class="home-screen">
+            <span class="time en">9:41</span>
+            <div class="apps">
+              <i class="app"></i><i class="app"></i><i class="app"></i><i class="app"></i>
+              <i class="app"></i><i class="app"></i><i class="app"></i><i class="app gym drop"></i>
+              <i class="app-label" style="grid-column:4">الچيم الخاص بك</i>
+              <i class="app"></i><i class="app"></i><i class="app"></i><i class="app"></i>
+              <i class="app"></i><i class="app"></i><i class="app"></i><i class="app"></i>
+              <i class="app"></i><i class="app"></i><i class="app"></i><i class="app"></i>
+            </div>
+            <div class="dock"><i class="app"></i><i class="app"></i><i class="app"></i><i class="app"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap reveal" style="margin-top:50px">
+      <table class="compare">
+        <thead><tr><th></th><th>تطبيق متجر عادي</th><th>برنامج urcod</th></tr></thead>
+        <tbody>
+          <tr><td>التحديث</td><td>مراجعة وموافقة من جوجل وأبل، وممكن تاخد أيام</td><td><span class="tick">✓</span> بيوصل لكل الموبايلات أول ما يتنشر</td></tr>
+          <tr><td>المشترك</td><td>لازم ينزّل التحديث بنفسه</td><td><span class="tick">✓</span> مش محتاج يعمل حاجة</td></tr>
+          <tr><td>الأجهزة</td><td>نسخة لأندرويد ونسخة لآيفون</td><td><span class="tick">✓</span> نسخة واحدة: أندرويد وآيفون والكمبيوتر</td></tr>
+          <tr><td>حسابات المطورين</td><td>اشتراكات ورسوم متاجر</td><td><span class="tick">✓</span> مفيش</td></tr>
+          <tr><td>الاسم واللوجو</td><td>محتاج نشر تطبيق جديد لكل چيم</td><td><span class="tick">✓</span> اسم الچيم الخاص بك ولوجو بتاعك من أول يوم</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= ROLES ================= -->
+  <section class="sec" id="roles">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">لكل واحد في الچيم شاشته</span>
+        <h2>صاحب الچيم يتابع، الكاشير يشتغل،<br /><span class="y">والمشترك يتمرّن.</span></h2>
+        <p>كل واحد بيشوف اللي يخصه بس — بصلاحيات إنت اللي بتحددها.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="الأدوار">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="p-owner" id="t-owner"><svg><use href="#i-chart"/></svg>صاحب الچيم</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-cashier" id="t-cashier"><svg><use href="#i-qr"/></svg>الاستقبال</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-coach" id="t-coach"><svg><use href="#i-dumbbell"/></svg>الكوتش</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-member" id="t-member"><svg><use href="#i-phone"/></svg>المشترك</button>
+      </div>
+
+      <div class="panel on" id="p-owner" role="tabpanel" aria-labelledby="t-owner">
+        <div>
+          <h3>لوحة تحكم بتقولك <span class="y">كل حاجة في نظرة.</span></h3>
+          <p>من موبايلك وإنت بره الچيم.</p>
+          <ul class="ticks">
+            <li><span><b>تحصيل النهارده</b> وآخر 30 يوم، والاشتراكات الشغالة واللي هتخلص.</span></li>
+            <li><span><b>تقارير شهرية</b>: صافي الربح، الجديد والتجديدات، أكتر باقة بتتباع، وتصدير Excel.</span></li>
+            <li><span><b>إيرادات ومصروفات</b> وتقفيل خزنة لكل كاشير بالعجز والزيادة.</span></li>
+            <li><span><b>الباقات والأسعار</b> والعربون وأقصى خصم للكاشير — كله من الإعدادات.</span></li>
+            <li><span><b>موظفين بصلاحيات</b>: أدمن، كاشير، كوتش، محاسب — وتقفل دخول أي حد في ثانية.</span></li>
+          </ul>
+        </div>
+        <div class="shot"><div class="desk"><div class="bar"><i></i><i></i><i></i></div><img src="assets/a-reports.webp" alt="شاشة التقارير الشهرية" loading="lazy" /></div></div>
+      </div>
+
+      <div class="panel" id="p-cashier" role="tabpanel" aria-labelledby="t-cashier">
+        <div>
+          <h3>اشتراك جديد في <span class="y">أقل من دقيقة.</span></h3>
+          <p>شاشة مصممة للزحمة.</p>
+          <ul class="ticks">
+            <li><span><b>بحث فوري</b> بالاسم أو الموبايل أو رقم العضوية.</span></li>
+            <li><span><b>بيع وتجديد</b> بدفع كامل أو عربون، والإيصال يتبعت واتساب.</span></li>
+            <li><span><b>مسح QR بالكاميرا</b> مع <b>صوت نجاح وصوت رفض</b> — من غير ما يبص للشاشة.</span></li>
+            <li><span><b>مشترك من غير موبايل؟</b> يكتب رقمه أو يختاره من القايمة.</span></li>
+            <li><span><b>تقفيل الخزنة</b> آخر الوردية بضغطة.</span></li>
+          </ul>
+        </div>
+        <div class="shot"><div class="phones"><div class="phone"><img src="assets/c-reception.webp" alt="شاشة الاستقبال" loading="lazy" /></div><div class="phone"><img src="assets/c-scan.webp" alt="شاشة مسح الدخول" loading="lazy" /></div></div></div>
+      </div>
+
+      <div class="panel" id="p-coach" role="tabpanel" aria-labelledby="t-coach">
+        <div>
+          <h3>الكوتش يتابع متدربينه <span class="y">بالأرقام مش بالذاكرة.</span></h3>
+          <p>كل كوتش بيشوف المتعيّنين له بس.</p>
+          <ul class="ticks">
+            <li><span><b>برنامج تمرين</b> لأيام الأسبوع بالمجموعات والعدات والراحة.</span></li>
+            <li><span><b>نظام تغذية</b> بالوجبات يظهر للمتدرب على موبايله.</span></li>
+            <li><span><b>متابعة الوزن والالتزام</b> ونسبة الحضور.</span></li>
+            <li><span><b>مكتبة تمارين</b> جاهزة يختار منها.</span></li>
+          </ul>
+        </div>
+        <div class="shot"><div class="phones"><div class="phone"><img src="assets/coach.webp" alt="شاشة الكوتش" loading="lazy" /></div><div class="phone"><img src="assets/m-progress.webp" alt="متابعة التقدم" loading="lazy" /></div></div></div>
+      </div>
+
+      <div class="panel" id="p-member" role="tabpanel" aria-labelledby="t-member">
+        <div>
+          <h3>تطبيق يخلّي المشترك <span class="y">يكمّل ويجدد.</span></h3>
+          <p>باسم الچيم الخاص بك ولوجو بتاعك.</p>
+          <ul class="ticks">
+            <li><span><b>بطاقة دخول QR</b> على الموبايل — مفيش كارنيه يضيع.</span></li>
+            <li><span><b>تمرين النهارده</b> يعلّم على اللي خلّصه، و«تقدّمي» لوزنه.</span></li>
+            <li><span><b>أيام متبقية</b> في اشتراكه، والمتبقي عليه وميعاده.</span></li>
+            <li><span><b>تنبيهات من الچيم</b> بجرس ونافذة لحد ما يقراها.</span></li>
+            <li><span><b>عروض وVIP</b> وفواتيره القديمة.</span></li>
+          </ul>
+        </div>
+        <div class="shot"><div class="phones"><div class="phone"><img src="assets/m-notice.webp" alt="تنبيه للمشترك" loading="lazy" /></div><div class="phone"><img src="assets/m-card.webp" alt="بطاقة الدخول" loading="lazy" /></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCREENS ================= -->
+  <section class="sec" id="screens" style="padding-top:40px">
+    <div class="wrap sec-head reveal">
+      <span class="eyebrow">شاشات حقيقية من البرنامج</span>
+      <h2>مش صور تخيلية. <span class="r">ده البرنامج نفسه.</span></h2>
+    </div>
+    <div class="gallery" tabindex="0" aria-label="شاشات البرنامج">
+      <div class="reel" id="reel">
+        <figure class="card-shot"><div class="phone"><img src="assets/m-home.webp" alt="الرئيسية عند المشترك" loading="lazy" /></div><p>الرئيسية<small>اشتراكه وتمرين النهارده</small></p></figure>
+        <figure class="card-shot"><div class="phone"><img src="assets/m-card.webp" alt="بطاقة الدخول QR" loading="lazy" /></div><p>بطاقة الدخول<small>كود بيتجدد كل 45 ثانية</small></p></figure>
+        <figure class="card-shot"><div class="phone"><img src="assets/m-workout.webp" alt="برنامج التمرين" loading="lazy" /></div><p>تمريني<small>من الكوتش لموبايله</small></p></figure>
+        <figure class="card-shot"><div class="phone"><img src="assets/m-progress.webp" alt="التقدم والوزن" loading="lazy" /></div><p>تقدّمي<small>الوزن والحضور</small></p></figure>
+        <figure class="card-shot"><div class="phone"><img src="assets/m-notice.webp" alt="تنبيه من الچيم" loading="lazy" /></div><p>تنبيهات<small>تغيير مواعيد؟ يوصل للكل</small></p></figure>
+        <figure class="card-shot"><div class="phone"><img src="assets/c-reception.webp" alt="الاستقبال" loading="lazy" /></div><p>الاستقبال<small>بحث وبيع وتجديد</small></p></figure>
+        <figure class="card-shot"><div class="phone"><img src="assets/c-scan.webp" alt="تسجيل الحضور" loading="lazy" /></div><p>تسجيل حضور<small>كاميرا + صوت</small></p></figure>
+        <figure class="card-shot"><div class="phone"><img src="assets/coach.webp" alt="الكوتش" loading="lazy" /></div><p>الكوتش<small>متدربينه بس</small></p></figure>
+        <figure class="card-shot"><div class="phone"><img src="assets/login.webp" alt="شاشة الدخول" loading="lazy" /></div><p>الدخول<small>باسم الچيم الخاص بك ولوجو بتاعك</small></p></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURES ================= -->
+  <section class="sec" style="padding-top:60px">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">تفاصيل بتفرق</span>
+        <h2>حاجات صغيرة… <span class="y">بس بتفرق في يوم الزحمة.</span></h2>
+      </div>
+      <div class="bento">
+        <article class="f img wide reveal"><img src="assets/red-view.webp" alt="" loading="lazy" /><div class="txt"><h4>واجهة بتشد المشترك</h4><p>تصميم رياضي بحركة خفيفة وصور لكل قسم، بالعربي والإنجليزي ووضع ليلي.</p></div></article>
+        <article class="f reveal" style="--d:.08s"><span class="ic"><svg><use href="#i-volume"/></svg></span><h4>صوت للنجاح والرفض</h4><p>الكاشير يعرف النتيجة من الصوت وهو بيسلّم على المشترك.</p></article>
+        <article class="f yellow reveal" style="--d:.16s"><span class="ic"><svg><use href="#i-bell"/></svg></span><h4>تنبيهات بجرس</h4><p>للكل، للشغالين، لـ VIP، للسيدات، أو لمشتركين بعينهم — وتشوف كام واحد قرا.</p></article>
+        <article class="f reveal"><span class="ic"><svg><use href="#i-venus"/></svg></span><h4>رجال وسيدات</h4><p>مختلط، أو مواعيد خاصة بالسيدات يرفض فيها الدخول لغير ميعاده، أو قسم منفصل بمدرّبات.</p></article>
+        <article class="f reveal" style="--d:.08s"><span class="ic"><svg><use href="#i-crown"/></svg></span><h4>VIP وعروض</h4><p>درجات VIP بمزايا، وبانرات عروض تظهر للمشتركين لحد ميعاد انتهائها.</p></article>
+        <article class="f img wide reveal" style="--d:.16s"><img src="assets/scene-gear.webp" alt="" loading="lazy" style="object-position:center 30%" /><div class="txt"><h4>اسم الچيم الخاص بك في كل حتة</h4><p>الأيقونة على الموبايل، شاشة الدخول، الإيصالات، ورسايل الواتساب.</p></div></article>
+        <article class="f reveal"><span class="ic"><svg><use href="#i-users"/></svg></span><h4>موظف بأكتر من وظيفة</h4><p>كاشير وكوتش في نفس الوقت؟ بيتنقل بين شاشاته من غير ما يخرج.</p></article>
+        <article class="f reveal" style="--d:.08s"><span class="ic"><svg><use href="#i-file"/></svg></span><h4>Excel في ضغطة</h4><p>المدفوعات، الاشتراكات، المصروفات، والمشتركين — كله يتصدّر.</p></article>
+        <article class="f reveal" style="--d:.16s"><span class="ic"><svg><use href="#i-wallet"/></svg></span><h4>كاش وتحويلات</h4><p>كاش، محفظة، InstaPay، وتحويل بنكي برقم العملية.</p></article>
+        <article class="f reveal" style="--d:.24s"><span class="ic"><svg><use href="#i-moon"/></svg></span><h4>ليل ونهار</h4><p>وضع ليلي ونهاري، وشغال على الموبايل والتابلت والكمبيوتر.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATS ================= -->
+  <section class="sec" style="padding-top:20px">
+    <div class="wrap stats">
+      <div class="stat reveal"><div class="n"><span data-count="45">0</span><small>ث</small></div><p>عمر كود الدخول</p></div>
+      <div class="stat reveal" style="--d:.08s"><div class="n"><span data-count="4">0</span></div><p>صلاحيات للموظفين</p></div>
+      <div class="stat reveal" style="--d:.16s"><div class="n"><span data-count="3">0</span></div><p>أنظمة رجال وسيدات</p></div>
+      <div class="stat reveal" style="--d:.24s"><div class="n"><span data-count="0">0</span></div><p>كشكول ورق</p></div>
+    </div>
+  </section>
+
+  <!-- ================= SECURITY ================= -->
+  <section class="sec sec-red">
+    <div class="wrap split">
+      <div class="shield reveal" aria-hidden="true">
+        <span class="ring"></span><span class="ring two"></span>
+        <img src="assets/red-app.webp" alt="" loading="lazy" />
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">فلوسك في أمان</span>
+        <h2>الحماية هنا قواعد…<br /><span class="r">مش ثقة.</span></h2>
+        <ul class="ticks" style="margin-top:20px">
+          <li><span><b>كل مبلغ بيتحسب على السيرفر</b>: السعر والخصم والعربون والاسترداد — محدش يقدر يغيّره من المتصفح.</span></li>
+          <li><span><b>إيصال اتعمل؟</b> مش هيتعدّل ولا هيتمسح، وكل عملية في سجل تدقيق باسم اللي عملها.</span></li>
+          <li><span><b>كل موظف بكلمة سر + رمز دخول</b>، و5 محاولات غلط بتقفل الحساب.</span></li>
+          <li><span><b>موظف ساب الشغل؟</b> تقفل دخوله من كل الأجهزة في ثانية.</span></li>
+          <li><span><b>المشترك بيشوف بياناته بس</b>، والكوتش بيشوف متدربينه بس.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRIAL ================= -->
+  <section class="sec" id="trial">
+    <div class="wrap">
+      <div class="trial reveal">
+        <div>
+          <h2>جرّبه على الچيم الخاص بك<br />قبل ما تدفع جنيه.</h2>
+          <p>نسخة تجريبية كاملة باسم الچيم الخاص بك ولوجو بتاعك، بمشتركينك وموظفينك. المدة بنحددها مع بعض حسب الچيم الخاص بك.</p>
+          <div class="trial-tags"><span>باسم الچيم الخاص بك</span><span>كل المميزات</span><span>تدريب للموظفين</span><span>دعم مباشر</span></div>
+          <a class="btn btn-dark wa-link" href="#" data-msg="أهلًا، عايز نسخة تجريبية من برنامج إدارة الچيم. اسم الچيم: "><svg><use href="#i-wa"/></svg>احجز نسختك التجريبية</a>
+        </div>
+        <img src="assets/scene-flex.webp" alt="" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW ================= -->
+  <section class="sec" style="padding-top:30px">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">ازاي نبدأ</span>
+        <h2>من أول رسالة <span class="y">لأول مشترك.</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="tl reveal"><h4>كلّمنا</h4><p>على واتساب أو تليفون، ونعرف الچيم الخاص بك محتاج إيه.</p></div>
+        <div class="tl reveal" style="--d:.08s"><h4>نجهّز نسختك</h4><p>باسم الچيم الخاص بك ولوجو بتاعك وألوانك وباقاتك.</p></div>
+        <div class="tl reveal" style="--d:.16s"><h4>تجرّب</h4><p>نسخة تجريبية كاملة، وندرّب الكاشير والكوتش.</p></div>
+        <div class="tl reveal" style="--d:.24s"><h4>تنطلق</h4><p>نمسح بيانات التجربة وتبدأ بمشتركينك الحقيقيين.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="sec" id="faq" style="padding-top:30px">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">أسئلة أصحاب الچيمات</span><h2>اسأل براحتك.</h2></div>
+      <div class="faq">
+        <details class="reveal"><summary>هل لازم أنزّله من جوجل بلاي أو آب ستور؟</summary><p>لا. البرنامج بيتفتح من لينك، ويتثبت على الشاشة الرئيسية بأيقونة الچيم الخاص بك زي أي تطبيق، على أندرويد وآيفون والكمبيوتر.</p></details>
+        <details class="reveal"><summary>لما يحصل تحديث، المشتركين هيعملوا إيه؟</summary><p>ولا حاجة. التحديث بيوصل لكل الموبايلات لوحده أول ما يتنشر، من غير مراجعة متاجر ولا «نزّل التحديث».</p></details>
+        <details class="reveal"><summary>محتاج كمبيوتر أو سيرفر في الچيم؟</summary><p>لا. البرنامج سحابي، والكاشير يقدر يشتغل من موبايل أو تابلت أو لابتوب. محتاج إنترنت بس.</p></details>
+        <details class="reveal"><summary>لو المشترك نسي موبايله؟</summary><p>الكاشير يكتب رقم عضويته أو تليفونه، أو يدوّر باسمه ويختاره من القايمة، والدخول يتسجل عادي.</p></details>
+        <details class="reveal"><summary>الچيم عندي فيه مواعيد للسيدات، ينفع؟</summary><p>أيوه. تختار «مواعيد خاصة بالسيدات» وتحدد الأيام والساعات، والبرنامج بيرفض أي دخول في غير ميعاد القسم. وفيه كمان نظام «قسم سيدات منفصل» بمدرّبات.</p></details>
+        <details class="reveal"><summary>لو موظف ساب الشغل؟</summary><p>من «الموظفين» تقفل حسابه، فيخرج من كل الأجهزة فورًا ومايقدرش يدخل تاني.</p></details>
+        <details class="reveal"><summary>أقدر أجرب قبل ما أدفع؟</summary><p>أكيد. بنجهزلك نسخة تجريبية باسم الچيم الخاص بك، والمدة بنتفق عليها مع بعض.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="assets/urcod.png" alt="urcod — Your Code. Your Business." width="174" height="54" loading="lazy" />
+        <p class="dev"><span class="en" style="font-size:1.1rem;letter-spacing:.06em">Programmer &amp; Developer</span><strong>Mahmoud Gamal Eldeen</strong>محمود جمال الدين — برامج إدارة جاهزة باسم شغلك.</p>
+      </div>
+      <div class="contact">
+        <a class="wa-link" href="#" data-msg="أهلًا، عايز أعرف تفاصيل برنامج إدارة الچيم"><svg style="color:#25d366"><use href="#i-wa"/></svg>واتساب<span class="ltr" style="margin-inline-start:auto">01508613866</span></a>
+        <a href="tel:+201508613866"><svg style="color:var(--yellow)"><use href="#i-call"/></svg>اتصال مباشر<span class="ltr" style="margin-inline-start:auto">01508613866</span></a>
+        <a href="https://www.linkedin.com/in/mahmoud-gamal-eldeen-073967440/" target="_blank" rel="noopener"><svg style="color:#0a66c2"><use href="#i-in"/></svg>LinkedIn<span style="margin-inline-start:auto;color:var(--muted);font-weight:700">تابع كل المشاريع</span></a>
+      </div>
+    </div>
+    <p class="copy" dir="ltr">© <span id="year">2026</span> urcod · Your Code. Your Business.</p>
+  </div>
+</footer>
+
+<a class="wa-float wa-link" href="#" data-msg="أهلًا، عايز أعرف تفاصيل برنامج إدارة الچيم" aria-label="واتساب"><svg><use href="#i-wa"/></svg></a>
+
+<script>
+(() => {
+  const PHONE = '201508613866';
+  document.querySelectorAll('.wa-link').forEach((a) => {
+    a.href = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(a.dataset.msg || '');
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // the marquee and the screen reel loop: their content is doubled once
+  for (const id of ['track', 'reel']) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML += el.innerHTML.replace(/<img /g, '<img aria-hidden="true" ');
+  }
+
+  // nav background + reading progress
+  const nav = document.getElementById('nav');
+  const bar = document.getElementById('progress');
+  const onScroll = () => {
+    nav.classList.toggle('solid', scrollY > 20);
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')';
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // reveal on scroll (+ counters, + the install animation)
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const count = (el) => {
+    const to = Number(el.dataset.count);
+    if (reduce || to === 0) { el.textContent = to; return; }
+    const t0 = performance.now();
+    const step = (t) => {
+      const p = Math.min(1, (t - t0) / 1400);
+      el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('[data-count]').forEach(count);
+      io.unobserve(e.target);
+    }
+  }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .install').forEach((el) => io.observe(el));
+
+  // role tabs (arrow keys move between them)
+  const tabs = [...document.querySelectorAll('.tab')];
+  const select = (tab) => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).classList.toggle('on', on);
+    });
+  };
+  tabs.forEach((t, i) => {
+    t.tabIndex = i === 0 ? 0 : -1;
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', (e) => {
+      const dir = e.key === 'ArrowLeft' ? 1 : e.key === 'ArrowRight' ? -1 : 0;
+      if (!dir) return;
+      const n = tabs[(i + dir + tabs.length) % tabs.length];
+      n.focus();
+      select(n);
+    });
+  });
+
+  // a slight parallax on the hero phones (pointer devices only)
+  const stage = document.querySelector('.stage');
+  if (stage && !reduce && matchMedia('(pointer: fine)').matches) {
+    addEventListener('mousemove', (e) => {
+      const x = (e.clientX / innerWidth - 0.5) * 2;
+      const y = (e.clientY / innerHeight - 0.5) * 2;
+      stage.style.transform = 'perspective(1200px) rotateY(' + x * -4 + 'deg) rotateX(' + y * 3 + 'deg)';
+    });
+  }
+})();
+</script>
+</body>
+</html>
