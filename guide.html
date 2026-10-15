@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>دليل التشغيل | برنامج إدارة الجيم — urcod</title>
+<meta name="description" content="دليل خطوة بخطوة للنسخة التجريبية: تثبيت التطبيق، وبعدين الأدمن، الكاشير، المشترك، والكوتش — بالترتيب وبالصور." />
+<meta name="theme-color" content="#0A0A0B" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="دليل تشغيل برنامج إدارة الجيم — خطوة بخطوة" />
+<meta property="og:description" content="من التثبيت لأول مشترك: الأدمن ← الكاشير ← المشترك ← الكوتش، بالصور." />
+<meta property="og:image" content="assets/og.jpg" />
+<link rel="icon" href="assets/gym-icon.png" />
+<style>
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/cairo-arabic-400-normal.woff2') format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/cairo-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/cairo-arabic-700-normal.woff2') format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/cairo-latin-700-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 800; font-display: swap; src: url('assets/fonts/cairo-arabic-800-normal.woff2') format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 800; font-display: swap; src: url('assets/fonts/cairo-latin-800-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 900; font-display: swap; src: url('assets/fonts/cairo-arabic-900-normal.woff2') format('woff2'); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0898-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC; }
+@font-face { font-family: 'Cairo'; font-style: normal; font-weight: 900; font-display: swap; src: url('assets/fonts/cairo-latin-900-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Bebas Neue'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/bebas-neue-latin-400-normal.woff2') format('woff2'); }
+:root {
+  --black: #0a0a0b; --ink: #121215; --ink-2: #1a1a1f; --ink-3: #23232a;
+  --line: rgba(255, 255, 255, 0.09);
+  --red: #e51c35; --red-2: #ff3b52; --yellow: #ffc21a; --yellow-2: #ffd85c;
+  --white: #fff; --muted: #b3b3bd; --green: #25d366;
+  --radius: 22px; --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--black); color: var(--white); font-family: 'Cairo', system-ui, sans-serif; font-size: 17px; line-height: 1.75; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { width: min(1180px, 100% - 32px); margin-inline: auto; }
+.en { font-family: 'Bebas Neue', 'Cairo', sans-serif; letter-spacing: 0.03em; }
+.ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+.y { color: var(--yellow); } .r { color: var(--red-2); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+svg { width: 1em; height: 1em; flex: none; }
+
+/* top bar */
+.bar { position: sticky; top: 0; z-index: 30; background: rgba(10, 10, 11, 0.86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; align-items: center; gap: 12px; height: 62px; }
+.bar img { height: 30px; width: auto; }
+.bar .sp { flex: 1; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 14px; padding: 10px 18px; font: inherit; font-weight: 800; text-decoration: none; cursor: pointer; transition: transform 0.2s var(--ease), box-shadow 0.2s; min-height: 44px; }
+.btn:hover { transform: translateY(-2px); }
+.btn-red { background: var(--red); color: #fff; box-shadow: 0 12px 30px -12px rgba(229, 28, 53, 0.8); }
+.btn-yellow { background: var(--yellow); color: #111; }
+.btn-ghost { background: rgba(255, 255, 255, 0.06); color: #fff; border: 1px solid var(--line); }
+.btn svg { width: 18px; height: 18px; }
+.prog { position: absolute; inset-inline: 0; bottom: -1px; height: 3px; background: linear-gradient(90deg, var(--yellow), var(--red)); transform-origin: right; transform: scaleX(0); }
+
+/* hero */
+.hero { position: relative; padding: 64px 0 40px; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: -20% -10% auto; height: 520px; background: radial-gradient(closest-side, rgba(229, 28, 53, 0.28), transparent 70%), radial-gradient(closest-side at 80% 40%, rgba(255, 194, 26, 0.14), transparent 70%); pointer-events: none; }
+.kicker { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(255, 194, 26, 0.1); border: 1px solid rgba(255, 194, 26, 0.35); color: var(--yellow); font-weight: 800; font-size: 0.9rem; }
+.kicker i { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); animation: ping 1.8s infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(255, 194, 26, 0.7); } 100% { box-shadow: 0 0 0 12px rgba(255, 194, 26, 0); } }
+h1 { position: relative; font-size: clamp(2rem, 5.4vw, 3.6rem); line-height: 1.25; margin: 18px 0 14px; font-weight: 900; }
+.lead { position: relative; color: var(--muted); font-size: 1.12rem; max-width: 760px; margin: 0; }
+.path { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 34px; counter-reset: p; }
+.path a { position: relative; display: flex; flex-direction: column; gap: 4px; padding: 16px 14px; border-radius: 18px; background: var(--ink); border: 1px solid var(--line); text-decoration: none; transition: border-color 0.2s, transform 0.2s var(--ease); }
+.path a:hover { border-color: rgba(255, 194, 26, 0.5); transform: translateY(-3px); }
+.path b { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--red); font-weight: 900; }
+.path a:first-child b { background: var(--yellow); color: #111; }
+.path strong { font-size: 1.05rem; }
+.path span { color: var(--muted); font-size: 0.86rem; line-height: 1.5; }
+.why { position: relative; margin-top: 18px; padding: 14px 18px; border-radius: 16px; background: rgba(255, 255, 255, 0.04); border: 1px dashed rgba(255, 255, 255, 0.16); color: var(--muted); font-size: 0.98rem; }
+.why strong { color: #fff; }
+
+/* layout with side index */
+.layout { display: grid; grid-template-columns: 230px 1fr; gap: 40px; align-items: start; padding-bottom: 40px; }
+.toc { position: sticky; top: 86px; display: flex; flex-direction: column; gap: 2px; padding: 14px; border-radius: 18px; background: var(--ink); border: 1px solid var(--line); }
+.toc p { margin: 0 0 6px; color: var(--muted); font-size: 0.8rem; font-weight: 800; }
+.toc a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; text-decoration: none; color: var(--muted); font-weight: 700; font-size: 0.95rem; transition: background 0.2s, color 0.2s; }
+.toc a b { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 7px; background: var(--ink-3); font-size: 0.8rem; color: #fff; }
+.toc a.on { background: rgba(229, 28, 53, 0.14); color: #fff; }
+.toc a.on b { background: var(--red); }
+
+/* sections */
+.part { padding: 34px 0 10px; }
+.part-head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.part-head .num { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 16px; background: var(--red); font-size: 1.6rem; font-weight: 900; flex: none; box-shadow: 0 10px 30px -10px rgba(229, 28, 53, 0.9); }
+#install .part-head .num { background: var(--yellow); color: #111; box-shadow: 0 10px 30px -10px rgba(255, 194, 26, 0.8); }
+h2 { margin: 0; font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 900; line-height: 1.3; }
+.part > p.sub { color: var(--muted); margin: 4px 0 22px; max-width: 760px; }
+.who { display: inline-flex; gap: 6px; flex-wrap: wrap; margin: 0 0 18px; }
+.who span { padding: 3px 12px; border-radius: 999px; background: var(--ink-2); border: 1px solid var(--line); font-size: 0.85rem; font-weight: 700; color: var(--muted); }
+
+.step { display: grid; grid-template-columns: 300px 1fr; gap: 34px; align-items: center; padding: 26px; margin-bottom: 18px; border-radius: var(--radius); background: linear-gradient(180deg, var(--ink), #0e0e11); border: 1px solid var(--line); opacity: 0; transform: translateY(24px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+.step.in { opacity: 1; transform: none; }
+.step.flip { grid-template-columns: 1fr 300px; }
+.step.flip .shot { order: 2; }
+.step.wide { grid-template-columns: 1fr; }
+.tag { display: inline-flex; align-items: center; gap: 8px; color: var(--yellow); font-weight: 900; font-size: 0.88rem; margin-bottom: 6px; }
+.tag::before { content: ''; width: 22px; height: 3px; border-radius: 3px; background: var(--red); }
+h3 { margin: 0 0 10px; font-size: 1.45rem; font-weight: 900; line-height: 1.4; }
+.step p { margin: 0 0 12px; color: #dcdce2; }
+ol.do { list-style: none; margin: 0 0 12px; padding: 0; counter-reset: d; display: flex; flex-direction: column; gap: 10px; }
+ol.do li { counter-increment: d; position: relative; padding-inline-start: 40px; color: #e6e6ea; }
+ol.do li::before { content: counter(d); position: absolute; inset-inline-start: 0; top: 2px; width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center; background: var(--ink-3); border: 1px solid rgba(255, 194, 26, 0.4); color: var(--yellow); font-weight: 900; font-size: 0.9rem; }
+kbd, .k { display: inline-block; padding: 0 8px; border-radius: 8px; background: rgba(229, 28, 53, 0.16); border: 1px solid rgba(229, 28, 53, 0.45); color: #fff; font: inherit; font-weight: 800; font-size: 0.92em; white-space: nowrap; }
+.note { display: flex; gap: 10px; padding: 12px 14px; border-radius: 14px; background: rgba(255, 194, 26, 0.08); border: 1px solid rgba(255, 194, 26, 0.3); color: #f3e7c4; font-size: 0.95rem; margin-top: 6px; }
+.note.red { background: rgba(229, 28, 53, 0.09); border-color: rgba(229, 28, 53, 0.4); color: #ffd9de; }
+.note svg { width: 20px; height: 20px; color: var(--yellow); margin-top: 3px; }
+.note.red svg { color: var(--red-2); }
+
+/* phone frame + hotspot */
+.shot { position: relative; justify-self: center; width: 100%; max-width: 280px; }
+.phone { position: relative; border-radius: 34px; padding: 9px; background: linear-gradient(160deg, #2a2a31, #0c0c0e); box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.08), 0 0 60px -20px rgba(229, 28, 53, 0.45); cursor: zoom-in; }
+.phone .screen { position: relative; border-radius: 26px; overflow: hidden; aspect-ratio: 600 / 1299; background: #fff; }
+.phone img { width: 100%; height: 100%; object-fit: cover; }
+.hot { position: absolute; left: var(--x); top: var(--y); width: 0; height: 0; pointer-events: none; }
+.hot::before, .hot::after { content: ''; position: absolute; left: -22px; top: -22px; width: 44px; height: 44px; border-radius: 50%; border: 3px solid var(--yellow); box-shadow: 0 0 18px rgba(255, 194, 26, 0.8); }
+.hot::after { animation: ring 1.8s ease-out infinite; }
+@keyframes ring { 0% { transform: scale(0.7); opacity: 1; } 100% { transform: scale(1.9); opacity: 0; } }
+.hot i { position: absolute; top: 26px; left: 50%; transform: translateX(-50%); white-space: nowrap; padding: 2px 10px; border-radius: 8px; background: var(--yellow); color: #111; font-style: normal; font-weight: 900; font-size: 0.78rem; box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.6); }
+.hot i.up { top: auto; bottom: 26px; }
+.cap { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 10px; }
+
+/* small gallery of three phones */
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
+.trio .shot { max-width: 230px; }
+.trio h4 { margin: 12px 0 2px; text-align: center; font-size: 1.05rem; }
+.trio .cap { margin-top: 0; }
+
+/* WhatsApp bubble */
+.wa { max-width: 380px; border-radius: 18px; overflow: hidden; background: #0b141a; border: 1px solid rgba(255, 255, 255, 0.08); margin: 6px 0 12px; }
+.wa-top { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #202c33; font-weight: 800; font-size: 0.92rem; }
+.wa-top svg { width: 22px; height: 22px; color: var(--green); }
+.wa-body { padding: 14px; background: #0b141a radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px) 0 0 / 14px 14px; }
+.wa-msg { position: relative; padding: 10px 12px 18px; border-radius: 12px 0 12px 12px; background: #005c4b; color: #e9edef; font-size: 0.92rem; line-height: 1.75; white-space: pre-line; }
+.wa-msg small { position: absolute; bottom: 4px; left: 10px; font-size: 0.7rem; color: rgba(233, 237, 239, 0.6); }
+
+/* install mockups */
+.os { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.os-card { padding: 22px; border-radius: var(--radius); background: var(--ink); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 14px; }
+.os-card h3 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; margin: 0; }
+.os-card h3 svg { width: 28px; height: 28px; }
+.mock { position: relative; height: 230px; border-radius: 22px; background: #f4f4f6; overflow: hidden; color: #111; font-size: 0.82rem; border: 6px solid #26262c; }
+.mock .url { display: flex; align-items: center; gap: 6px; margin: 8px; padding: 6px 10px; border-radius: 999px; background: #e3e3e8; font-family: system-ui, sans-serif; direction: ltr; font-size: 0.72rem; color: #555; }
+.mock .url .dots { margin-left: auto; font-weight: 900; font-size: 1rem; color: #222; letter-spacing: -1px; position: relative; }
+.mock .menu { position: absolute; top: 44px; right: 8px; width: 74%; border-radius: 12px; background: #fff; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); padding: 6px 0; animation: drop 3.6s var(--ease) infinite; transform-origin: top right; }
+.mock .menu div { padding: 7px 12px; color: #444; }
+.mock .menu .hit { background: rgba(229, 28, 53, 0.12); color: #c3102a; font-weight: 800; }
+@keyframes drop { 0%, 12% { opacity: 0; transform: scale(0.85); } 22%, 88% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+.mock .sheet { position: absolute; inset-inline: 0; bottom: 0; border-radius: 16px 16px 0 0; background: #fff; box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.2); padding: 10px 0 14px; animation: rise 3.6s var(--ease) infinite; }
+.mock .sheet div { padding: 7px 14px; color: #444; display: flex; justify-content: space-between; }
+.mock .sheet .hit { background: rgba(229, 28, 53, 0.12); color: #c3102a; font-weight: 800; }
+@keyframes rise { 0%, 12% { transform: translateY(100%); } 24%, 88% { transform: none; } 100% { transform: translateY(100%); } }
+.mock .safari-bar { position: absolute; bottom: 0; inset-inline: 0; height: 40px; background: #e9e9ee; display: flex; align-items: center; justify-content: space-around; font-size: 1.1rem; color: #0a84ff; direction: ltr; }
+.mock .safari-bar .share { position: relative; }
+.mock .safari-bar .share::after { content: ''; position: absolute; inset: -8px -10px; border-radius: 50%; border: 2px solid var(--red); animation: ring 1.8s ease-out infinite; }
+.mock .pc-bar { display: flex; align-items: center; gap: 8px; margin: 10px; padding: 8px 12px; border-radius: 10px; background: #e3e3e8; direction: ltr; font-family: system-ui, sans-serif; font-size: 0.75rem; color: #555; }
+.mock .pc-bar .inst { margin-left: auto; position: relative; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; border: 1.6px solid #333; font-size: 0.8rem; color: #333; }
+.mock .pc-bar .inst::after { content: ''; position: absolute; inset: -9px; border-radius: 50%; border: 2px solid var(--red); animation: ring 1.8s ease-out infinite; }
+.mock .pop { position: absolute; top: 56px; right: 16px; left: 16px; padding: 12px; border-radius: 12px; background: #fff; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); animation: drop 3.6s var(--ease) infinite; direction: rtl; }
+.mock .pop b { display: block; margin-bottom: 8px; }
+.mock .pop span { display: inline-block; padding: 4px 14px; border-radius: 8px; background: #1a73e8; color: #fff; font-weight: 800; }
+.mock .icon { position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 4px; font-weight: 800; font-size: 0.75rem; }
+.mock .icon img { width: 46px; height: 46px; border-radius: 12px; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25); }
+.os-card ol.do li { font-size: 0.97rem; }
+.done { margin-top: 18px; display: flex; gap: 16px; align-items: center; padding: 18px 22px; border-radius: var(--radius); background: linear-gradient(90deg, rgba(229, 28, 53, 0.16), rgba(255, 194, 26, 0.08)); border: 1px solid rgba(229, 28, 53, 0.35); }
+.done img { width: 56px; height: 56px; border-radius: 14px; }
+.done p { margin: 0; }
+
+/* FAQ */
+.faq { display: flex; flex-direction: column; gap: 10px; }
+details { border-radius: 16px; background: var(--ink); border: 1px solid var(--line); padding: 0 18px; }
+summary { cursor: pointer; list-style: none; padding: 16px 0; font-weight: 800; display: flex; justify-content: space-between; gap: 12px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; color: var(--yellow); font-size: 1.4rem; line-height: 1; transition: transform 0.2s; }
+details[open] summary::after { transform: rotate(45deg); }
+details p { margin: 0 0 16px; color: #d4d4da; }
+
+/* end + footer */
+.cta { margin: 30px 0 50px; padding: 34px; border-radius: 28px; text-align: center; background: radial-gradient(circle at 20% 0, rgba(229, 28, 53, 0.35), transparent 55%), radial-gradient(circle at 90% 100%, rgba(255, 194, 26, 0.18), transparent 50%), var(--ink); border: 1px solid rgba(229, 28, 53, 0.35); }
+.cta h2 { margin-bottom: 8px; }
+.cta p { color: var(--muted); margin: 0 0 20px; }
+.cta .row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+footer { border-top: 1px solid var(--line); padding: 30px 0 40px; }
+.foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: center; }
+.foot img { height: 44px; width: auto; }
+.foot .dev { margin: 6px 0 0; color: var(--muted); font-size: 0.95rem; }
+.foot .dev strong { color: #fff; display: block; font-size: 1.05rem; }
+.foot .links { display: flex; gap: 10px; flex-wrap: wrap; }
+.copy { text-align: center; color: #6c6c76; font-size: 0.85rem; margin: 22px 0 0; }
+
+/* zoom dialog */
+dialog { border: 0; padding: 0; background: transparent; max-width: min(92vw, 460px); max-height: 92vh; }
+dialog::backdrop { background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(4px); }
+dialog img { max-height: 88vh; width: auto; border-radius: 18px; margin-inline: auto; }
+dialog button { position: absolute; top: 8px; left: 8px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--red); color: #fff; font-size: 1.4rem; cursor: pointer; }
+
+/* responsive */
+@media (max-width: 1020px) {
+  .layout { grid-template-columns: 1fr; gap: 0; }
+  .toc { position: sticky; top: 62px; z-index: 20; flex-direction: row; overflow-x: auto; border-radius: 0; margin-inline: -16px; padding: 8px 16px; background: rgba(18, 18, 21, 0.95); backdrop-filter: blur(10px); border-width: 0 0 1px; scrollbar-width: none; }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc p { display: none; }
+  .toc a { white-space: nowrap; padding: 6px 10px; }
+  html { scroll-padding-top: 120px; }
+  .os { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .path { grid-template-columns: 1fr 1fr; }
+  .path a:first-child { grid-column: 1 / -1; }
+  .step, .step.flip { grid-template-columns: 1fr; padding: 20px; gap: 22px; }
+  .step.flip .shot { order: 0; }
+  .shot { max-width: 250px; }
+  .trio { grid-template-columns: 1fr; }
+  .trio .shot { max-width: 250px; }
+  .bar .hide-s { display: none; }
+  .cta { padding: 26px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .step { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2 22l5.36-1.4a9.8 9.8 0 0 0 4.68 1.2h.01c5.43 0 9.84-4.4 9.84-9.84A9.8 9.8 0 0 0 12.04 2Zm5.72 13.9c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.13.1-1.82-.12-.42-.13-.96-.31-1.65-.6-2.9-1.26-4.8-4.18-4.94-4.38-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.1.2-.14.31-.29.48-.14.17-.3.38-.43.5-.14.15-.29.3-.12.6.17.29.75 1.24 1.61 2 1.1.99 2.04 1.3 2.33 1.44.29.15.46.12.63-.07.17-.2.72-.84.92-1.13.19-.29.38-.24.65-.14.26.1 1.68.79 1.97.93.29.15.48.22.55.34.07.12.07.7-.17 1.38Z"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.46h-4v-4.84c0-1.15-.02-2.64-1.6-2.64-1.62 0-1.86 1.26-1.86 2.56v4.92h-4v-11Z"/></symbol>
+  <symbol id="i-call" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></g></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17v.01"/></g></symbol>
+  <symbol id="i-android" viewBox="0 0 24 24"><path fill="#3ddc84" d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.86 3.22a11.4 11.4 0 0 0-9.84 0L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.8 10.8 0 0 0 1 18h22a10.8 10.8 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24"><path fill="#fff" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7a4.5 4.5 0 0 0-3.5-1.9c-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8A4.7 4.7 0 0 0 4.2 9.5c-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8s1.9.8 3.2.8c1.3 0 2.1-1.2 2.9-2.4a10 10 0 0 0 1.3-2.7 4.2 4.2 0 0 1-2.5-4zM14 5.4A4.3 4.3 0 0 0 15 2.3a4.4 4.4 0 0 0-2.9 1.5 4.1 4.1 0 0 0-1 3 3.6 3.6 0 0 0 2.9-1.4z"/></symbol>
+  <symbol id="i-pc" viewBox="0 0 24 24"><g fill="none" stroke="#7cc4ff" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></g></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6"/></symbol>
+</svg>
+
+<header class="bar">
+  <div class="wrap">
+    <a href="index.html" aria-label="urcod — الرجوع للبروشور"><img src="assets/urcod.png" alt="urcod" width="97" height="30" /></a>
+    <span class="sp"></span>
+    <a class="btn btn-ghost hide-s" href="index.html"><svg><use href="#i-back"/></svg>البروشور</a>
+    <a class="btn btn-red wa-link" href="#" data-msg="أهلًا، عندي سؤال في النسخة التجريبية لبرنامج الجيم"><svg><use href="#i-wa"/></svg>محتاج مساعدة؟</a>
+  </div>
+  <div class="prog" id="prog"></div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker"><i></i>دليل النسخة التجريبية</span>
+    <h1>من التثبيت لـ<span class="y">أول مشترك</span> في الجيم<br /><span class="r">خطوة بخطوة</span> وبالصور</h1>
+    <p class="lead">الدليل ده ماشي بنفس ترتيب أول يوم شغل فعلي. امشي عليه بالترتيب، وكل صورة فيها دايرة صفرا بتوريك تدوس فين بالظبط.</p>
+    <nav class="path" aria-label="الترتيب">
+      <a href="#install"><b>1</b><strong>التثبيت</strong><span>التطبيق على الموبايل أو الكمبيوتر — من غير متجر</span></a>
+      <a href="#admin"><b>2</b><strong>الأدمن</strong><span>صاحب الجيم: الإعدادات والباقات والموظفين</span></a>
+      <a href="#cashier"><b>3</b><strong>الكاشير</strong><span>الاستقبال: تسجيل المشترك وتسجيل الحضور</span></a>
+      <a href="#member"><b>4</b><strong>المشترك</strong><span>العميل: يدخل ويشوف كارنيه الـ QR وتمرينه</span></a>
+      <a href="#coach"><b>5</b><strong>الكوتش</strong><span>المدرب: متدربينه وبرامجهم</span></a>
+    </nav>
+    <p class="why"><strong>ليه الترتيب ده؟</strong> الأدمن بيجهّز الجيم ويضيف الكاشير والكوتشات، والكاشير بيسجّل المشترك فيوصله دخوله على واتساب، وبعدين الأدمن يعيّن له كوتش. كل خطوة محتاجة اللي قبلها.</p>
+  </div>
+</section>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="أقسام الدليل">
+    <p>الأقسام</p>
+    <a href="#install"><b>1</b>التثبيت</a>
+    <a href="#admin"><b>2</b>الأدمن</a>
+    <a href="#cashier"><b>3</b>الكاشير</a>
+    <a href="#member"><b>4</b>المشترك</a>
+    <a href="#coach"><b>5</b>الكوتش</a>
+    <a href="#faq"><b>؟</b>أسئلة شائعة</a>
+  </nav>
+
+  <main>
+    <!-- 1 INSTALL -->
+    <section class="part" id="install">
+      <div class="part-head"><span class="num">1</span><h2>تثبيت التطبيق</h2></div>
+      <p class="sub">التطبيق مش محتاج جوجل بلاي ولا آب ستور. هيوصلك <strong>رابط التطبيق</strong> على واتساب — افتحه وثبّته مرة واحدة، وبعدها هيفتح من أيقونة على الشاشة زي أي تطبيق. نفس الخطوات لأي حد: الأدمن، الكاشير، الكوتش، والمشترك.</p>
+      <div class="os">
+        <div class="os-card">
+          <h3><svg><use href="#i-android"/></svg>أندرويد</h3>
+          <div class="mock" aria-hidden="true">
+            <div class="url">🔒 urcod-eg.github.io/GYM <span class="dots">⋮</span></div>
+            <div class="menu"><div>علامة تبويب جديدة</div><div>السجل</div><div class="hit">تثبيت التطبيق</div><div>الإعدادات</div></div>
+          </div>
+          <ol class="do">
+            <li>افتح الرابط من <strong>Google Chrome</strong>.</li>
+            <li>دوس على <kbd>⋮</kbd> فوق في الركن.</li>
+            <li>اختار <kbd>تثبيت التطبيق</kbd> أو <kbd>إضافة إلى الشاشة الرئيسية</kbd> ← <kbd>تثبيت</kbd>.</li>
+          </ol>
+        </div>
+        <div class="os-card">
+          <h3><svg><use href="#i-apple"/></svg>آيفون</h3>
+          <div class="mock" aria-hidden="true">
+            <div class="url">🔒 urcod-eg.github.io/GYM</div>
+            <div class="sheet" style="bottom:40px"><div>نسخ</div><div class="hit">إضافة إلى الشاشة الرئيسية <span>⊞</span></div><div>إضافة إشارة مرجعية</div></div>
+            <div class="safari-bar"><span>‹</span><span>›</span><span class="share">⬆︎</span><span>▢</span><span>⧉</span></div>
+          </div>
+          <ol class="do">
+            <li>افتح الرابط من <strong>Safari</strong> (مش كروم).</li>
+            <li>دوس على زرار المشاركة <kbd>⬆︎</kbd> تحت.</li>
+            <li>انزل واختار <kbd>إضافة إلى الشاشة الرئيسية</kbd> ← <kbd>إضافة</kbd>.</li>
+          </ol>
+        </div>
+        <div class="os-card">
+          <h3><svg><use href="#i-pc"/></svg>كمبيوتر الاستقبال</h3>
+          <div class="mock" aria-hidden="true">
+            <div class="pc-bar">🔒 urcod-eg.github.io/GYM <span class="inst">⤓</span></div>
+            <div class="pop"><b>تثبيت التطبيق؟</b><span>تثبيت</span></div>
+          </div>
+          <ol class="do">
+            <li>افتح الرابط من <strong>Chrome</strong> أو <strong>Edge</strong>.</li>
+            <li>دوس على أيقونة التثبيت <kbd>⤓</kbd> في آخر شريط العنوان.</li>
+            <li>اختار <kbd>تثبيت</kbd> — هيفتح في شباك لوحده. مناسب للكاشير مع كاميرا أو ويب كام.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="done">
+        <img src="assets/gym-icon.png" alt="" width="56" height="56" />
+        <p><strong>خلاص اتثبّت.</strong> هتلاقي أيقونة الجيم على الشاشة. افتح منها على طول، والتحديثات بتنزل لوحدها — مفيش حاجة تعملها.</p>
+      </div>
+    </section>
+
+    <!-- 2 ADMIN -->
+    <section class="part" id="admin">
+      <div class="part-head"><span class="num">2</span><h2>الأدمن — صاحب الجيم</h2></div>
+      <p class="sub">إنت أول واحد يدخل. هتجهّز الجيم مرة واحدة في حوالي ربع ساعة: الإعدادات، الباقات والأسعار، الموظفين، وبعدين الكوتشات والتنبيهات.</p>
+
+      <article class="step">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/staff-login-admin.webp" alt="شاشة دخول الإدارة" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:84.6%;--y:8.1%"><i>5 مرات</i></span></div></div></div>
+        <div>
+          <span class="tag">الخطوة 1</span>
+          <h3>دخول الإدارة من الباب السري</h3>
+          <p>شاشة الدخول العادية للمشتركين. دخول الإدارة مستخبي عشان محدش من المشتركين يشوفه.</p>
+          <ol class="do">
+            <li>دوس على <strong>شعار الجيم</strong> اللي فوق <kbd>5 مرات</kbd> ورا بعض — هتظهر شاشة <strong>«دخول الإدارة»</strong>.</li>
+            <li>اكتب رقم موبايلك وكلمة السر اللي استلمتهم من urcod، وعلّم <strong>«تذكرني على الجهاز ده»</strong>.</li>
+            <li>اكتب <strong>رمز الدخول</strong> (4 أرقام).</li>
+          </ol>
+          <div class="note red"><svg><use href="#i-warn"/></svg><span>كلمة السر والرمز ليك إنت بس. متبعتهمش لحد ولا تكتبهم في شات — حتى لينا.</span></div>
+        </div>
+      </article>
+
+      <article class="step flip">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/admin-settings.webp" alt="صفحة الإعدادات" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:50%;--y:85%"><i class="up">رجال / سيدات</i></span></div></div></div>
+        <div>
+          <span class="tag">الخطوة 2</span>
+          <h3>الإعدادات — أول حاجة تعملها</h3>
+          <p>من القايمة <kbd>☰</kbd> ← <strong>الإعدادات</strong>. راجع واحفظ مرة واحدة:</p>
+          <ol class="do">
+            <li><strong>العربون والمستحقات:</strong> تسمح بالدفع بعربون؟ وأقل نسبة، ومهلة سداد الباقي.</li>
+            <li><strong>أقصى خصم</strong> يقدر الكاشير يعمله من غير ما يرجعلك.</li>
+            <li><strong>نظام الجيم:</strong> <span class="k">مختلط</span> أو <span class="k">مواعيد خاصة للسيدات</span> أو <span class="k">قسم منفصل</span>. لو اخترت المواعيد، حدد ساعات السيدات لكل يوم — والبرنامج هيرفض دخول أي حد في غير مواعيد قسمه.</li>
+          </ol>
+          <div class="note"><svg><use href="#i-info"/></svg><span>متنساش زرار <strong>حفظ</strong> في آخر الصفحة.</span></div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/admin-plans.webp" alt="صفحة الباقات والعروض" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:20.3%;--y:11.6%"><i>إضافة باقة</i></span></div></div></div>
+        <div>
+          <span class="tag">الخطوة 3</span>
+          <h3>الباقات والأسعار</h3>
+          <p>من <strong>الباقات والعروض</strong>. هتلاقي باقات جاهزة (حصة، أسبوع، شهر، 3 شهور…).</p>
+          <ol class="do">
+            <li>دوس <kbd>تعديل</kbd> على أي باقة وغيّر السعر والمدة وعدد الزيارات حسب جيمك.</li>
+            <li>عايز عرض أو باقة جديدة؟ دوس <kbd>إضافة باقة</kbd>.</li>
+            <li>الباقة اللي مش بتبيعها: <kbd>حذف</kbd> أو وقّفها.</li>
+          </ol>
+          <div class="note"><svg><use href="#i-info"/></svg><span>تغيير السعر بيسري على الاشتراكات الجديدة بس — المشتركين الحاليين مش بيتأثروا.</span></div>
+        </div>
+      </article>
+
+      <article class="step flip">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/admin-staff-add.webp" alt="إضافة موظف" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:50%;--y:94.5%"><i class="up">إنشاء الحساب</i></span></div></div></div>
+        <div>
+          <span class="tag">الخطوة 4</span>
+          <h3>إضافة الموظفين (كاشير وكوتشات)</h3>
+          <ol class="do">
+            <li>من <strong>الموظفين</strong> دوس <kbd>إضافة موظف</kbd>.</li>
+            <li>اكتب الاسم ورقم الموبايل، واختار الصلاحية: <span class="k">كاشير</span> أو <span class="k">كوتش</span> أو <span class="k">محاسب</span> — ممكن أكتر من واحدة لنفس الشخص.</li>
+            <li>دوس <kbd>إنشاء الحساب وكلمة السر</kbd> ← البرنامج يعمل كلمة سر ورمز دخول ويفتح واتساب برسالة جاهزة للموظف. دوس إرسال.</li>
+          </ol>
+          <div class="wa" aria-label="مثال لرسالة الموظف">
+            <div class="wa-top"><svg><use href="#i-wa"/></svg>رسالة الموظف (مثال)</div>
+            <div class="wa-body"><div class="wa-msg">أهلًا سامي 👋
+تم عمل حسابك في نظام <b>بلس جيم</b> بصلاحية: <b>كاشير</b>.
+📱 التطبيق: رابط الجيم
+للدخول اضغط على شعار الجيم 3 مرات.
+👤 اسم المستخدم: <b>رقم موبايله</b>
+🔑 كلمة السر: <b>••••••••</b>
+🔢 رمز الدخول: <b>••••</b><small>10:15</small></div></div>
+          </div>
+          <div class="note"><svg><use href="#i-info"/></svg><span>موظف ساب الشغل؟ <strong>إيقاف الحساب</strong> بيقفل دخوله فورًا. نسي كلمة السر؟ <strong>كلمة سر جديدة</strong> وتتبعتله تاني.</span></div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/admin-home.webp" alt="الرئيسية للأدمن" loading="lazy" width="600" height="1299" /></div></div></div>
+        <div>
+          <span class="tag">كل يوم</span>
+          <h3>الرئيسية — الجيم في نظرة واحدة</h3>
+          <p>أول ما تفتح: تحصيل النهارده، الاشتراكات الجديدة، الحضور، مشتركين الـ VIP، والمتأخرات. وتحت <strong>تنبيهات</strong> بأي حاجة محتاجة عينك — زي فرق في قفل الصندوق.</p>
+          <p>ومن <strong>التقارير</strong> تشوف الإيراد والحضور لأي شهر، وكل عملية مسجّلة باسم الموظف اللي عملها.</p>
+        </div>
+      </article>
+
+      <article class="step flip">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/admin-coaches.webp" alt="الكوتشات والبرامج" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:71.4%;--y:19.5%"><i>تعيين كوتش</i></span></div></div></div>
+        <div>
+          <span class="tag">بعد ما المشتركين يتسجلوا</span>
+          <h3>تعيين كوتش لكل مشترك</h3>
+          <ol class="do">
+            <li>من <strong>الكوتشات والبرامج</strong> دوس <kbd>تعيين كوتش لمشترك</kbd>.</li>
+            <li>اختار المشترك والكوتش والخطة.</li>
+            <li>المشترك هيظهر عند الكوتش في «متدربيني» على طول.</li>
+          </ol>
+          <div class="note"><svg><use href="#i-info"/></svg><span>في نظام «قسم منفصل» البرنامج بيعرض لكل مشتركة كوتشات السيدات بس، والعكس.</span></div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/admin-notices.webp" alt="التنبيهات" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:80.4%;--y:22%"><i>تنبيه جديد</i></span></div></div></div>
+        <div>
+          <span class="tag">وقت ما تحب</span>
+          <h3>تنبيهات للمشتركين</h3>
+          <ol class="do">
+            <li>من <strong>التنبيهات</strong> دوس <kbd>تنبيه جديد</kbd>.</li>
+            <li>اكتب العنوان والرسالة، واختار مين يوصله: الكل، المشتركين الفعّالين، VIP، رجال، سيدات، أو مشتركين بالاسم.</li>
+            <li>هيظهر للمشترك أول ما يفتح التطبيق، ويفضل لحد ما يدوس «تمام» — وإنت بتشوف كام واحد قراه.</li>
+          </ol>
+        </div>
+      </article>
+    </section>
+
+    <!-- 3 CASHIER -->
+    <section class="part" id="cashier">
+      <div class="part-head"><span class="num">3</span><h2>الكاشير — الاستقبال</h2></div>
+      <p class="sub">بعد ما الأدمن يضيفه، الكاشير بيستلم رسالة واتساب فيها بياناته. يثبّت التطبيق (القسم 1) ويدخل.</p>
+
+      <article class="step">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/staff-login-cashier.webp" alt="شاشة دخول الكاشير" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:84.6%;--y:8.1%"><i>3 مرات</i></span></div></div></div>
+        <div>
+          <span class="tag">الخطوة 1</span>
+          <h3>دخول الكاشير</h3>
+          <ol class="do">
+            <li>دوس على <strong>شعار الجيم</strong> <kbd>3 مرات</kbd> — هتظهر <strong>«دخول الكاشير»</strong>.</li>
+            <li>رقم الموبايل وكلمة السر من رسالة واتساب، وبعدين <strong>رمز الدخول</strong>.</li>
+          </ol>
+          <div class="note"><svg><use href="#i-info"/></svg><span>لو الموظف كاشير وكوتش مع بعض، هيلاقي زرار <strong>«وظايفك»</strong> فوق يبدّل بينهم من غير ما يخرج.</span></div>
+        </div>
+      </article>
+
+      <article class="step flip">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/cashier-new.webp" alt="تسجيل مشترك جديد" loading="lazy" width="600" height="1299" /></div></div></div>
+        <div>
+          <span class="tag">الخطوة 2 — أهم خطوة</span>
+          <h3>تسجيل مشترك جديد</h3>
+          <ol class="do">
+            <li>من الاستقبال دوس <kbd>+ مشترك جديد</kbd>.</li>
+            <li>الاسم بالكامل ورقم الموبايل (هو ده اسم المستخدم بتاعه).</li>
+            <li>اختار <strong>الباقة</strong> وتاريخ البداية، والخصم لو فيه.</li>
+            <li>طريقة الدفع: <span class="k">كاش</span> <span class="k">محفظة</span> <span class="k">InstaPay</span> <span class="k">تحويل</span> — أو عربون والباقي يتسجّل متأخرات.</li>
+            <li>دوس <kbd>إنشاء الدخول وإرسال واتساب</kbd> ← واتساب يفتح برسالة جاهزة للمشترك. دوس إرسال.</li>
+          </ol>
+          <div class="wa" aria-label="مثال لرسالة المشترك">
+            <div class="wa-top"><svg><use href="#i-wa"/></svg>رسالة المشترك (مثال)</div>
+            <div class="wa-body"><div class="wa-msg">🏋️ أهلًا بك في <b>بلس جيم</b>، كابتن <b>أحمد</b>! 💪
+🏷️ رقم العضوية: <b>GYM-10025</b>
+📱 تطبيق الجيم: رابط الجيم
+👤 اسم المستخدم: <b>رقم موبايله</b>
+🔑 كلمة السر: <b>••••••••</b>
+احتفظ بالرسالة دي ومتدّيش كلمة السر لحد. 🔥<small>10:20</small></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/cashier-home.webp" alt="شاشة الاستقبال" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:50%;--y:36.7%"><i>مسح QR</i></span></div></div></div>
+        <div>
+          <span class="tag">الخطوة 3 — كل يوم</span>
+          <h3>تسجيل الحضور على الباب</h3>
+          <ol class="do">
+            <li>دوس <kbd>مسح QR</kbd> ووجّه الكاميرا لكارنيه المشترك على موبايله.</li>
+            <li><strong>صوت نجاح</strong> = اتسجّل دخوله. <strong>صوت رفض</strong> = فيه مشكلة، والسبب مكتوب قدامك (اشتراك منتهي، متأخرات، مش مواعيد قسمه…).</li>
+            <li>مشترك مش معاه موبايل؟ اكتب <strong>رقم العضوية أو رقم تليفونه أو اسمه</strong> واختاره من القايمة ← <kbd>تسجيل دخول</kbd>.</li>
+          </ol>
+          <div class="note"><svg><use href="#i-info"/></svg><span>من نفس الشاشة: <strong>تجديد</strong> اشتراك، تحصيل متأخرات، و<strong>حسابات المشتركين</strong> لو حد نسي كلمة السر.</span></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 4 MEMBER -->
+    <section class="part" id="member">
+      <div class="part-head"><span class="num">4</span><h2>المشترك — العميل</h2></div>
+      <p class="sub">ده اللي عميلك بيشوفه. ابعت له الجزء ده مع رسالة الواتساب أو اشرحهوله أول مرة في الاستقبال — دقيقة واحدة.</p>
+
+      <article class="step">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/login.webp" alt="شاشة دخول المشترك" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:50%;--y:90.4%"><i class="up">دخول</i></span></div></div></div>
+        <div>
+          <span class="tag">الخطوة 1</span>
+          <h3>أول دخول</h3>
+          <ol class="do">
+            <li>يفتح الرابط اللي في رسالة الواتساب ويثبّت التطبيق (القسم 1).</li>
+            <li>يكتب <strong>رقم موبايله</strong> و<strong>كلمة السر</strong> من الرسالة.</li>
+            <li>يعلّم <strong>«تذكرني على الجهاز ده»</strong> ويدوس <kbd>دخول</kbd> — ومش هيحتاج يكتبهم تاني.</li>
+          </ol>
+        </div>
+      </article>
+
+      <article class="step flip">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/member-home2.webp" alt="رئيسية المشترك" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:50%;--y:79.3%"><i class="up">إظهار رمز الدخول</i></span></div></div></div>
+        <div>
+          <span class="tag">الخطوة 2</span>
+          <h3>الرئيسية وكارنيه الدخول</h3>
+          <p>فيها اشتراكه: الباقة، فاضل كام يوم، كوتشه، وعروض الجيم.</p>
+          <ol class="do">
+            <li>على الباب يدوس <kbd>إظهار رمز الدخول</kbd>.</li>
+            <li>يوري الـ QR للكاشير — بيتغيّر كل 45 ثانية، فمحدش يقدر يصوّره ويدخل بيه.</li>
+          </ol>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/member-home.webp" alt="تنبيه من الجيم" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:34.4%;--y:3.5%"><i>الجرس</i></span></div></div></div>
+        <div>
+          <span class="tag">الخطوة 3</span>
+          <h3>تنبيهات الجيم</h3>
+          <p>أي تنبيه من الإدارة بيظهر له أول ما يفتح التطبيق لحد ما يدوس <kbd>تمام</kbd>. والجرس فوق عليه عدد التنبيهات اللي لسه ما قراهاش.</p>
+        </div>
+      </article>
+
+      <article class="step wide">
+        <div>
+          <span class="tag">الخطوة 4</span>
+          <h3>تمرينه وتقدّمه وكل حاجة تانية</h3>
+          <p>من الشريط اللي تحت:</p>
+        </div>
+        <div class="trio">
+          <div><div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/member-workout.webp" alt="تمريني" loading="lazy" width="600" height="1299" /></div></div></div><h4>تمريني</h4><p class="cap">برنامج اليوم من الكوتش، ويعلّم على كل تمرين يخلّصه.</p></div>
+          <div><div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/member-progress.webp" alt="تقدمي" loading="lazy" width="600" height="1299" /></div></div></div><h4>تقدّمي</h4><p class="cap">يسجّل وزنه ويشوف الرسم والحضور.</p></div>
+          <div><div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/member-more.webp" alt="المزيد" loading="lazy" width="600" height="1299" /></div></div></div><h4>المزيد</h4><p class="cap">فواتيره، مزايا VIP، المساعدة، والخروج.</p></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 5 COACH -->
+    <section class="part" id="coach">
+      <div class="part-head"><span class="num">5</span><h2>الكوتش — المدرب</h2></div>
+      <p class="sub">الكوتش بيدخل بنفس طريقة الكاشير: <kbd>3 مرات</kbd> على الشعار، وبعدين رقمه وكلمة السر ورمز الدخول من رسالة الواتساب.</p>
+
+      <article class="step">
+        <div class="shot"><div class="phone"><div class="screen"><img src="assets/guide/coach-home.webp" alt="متدربيني" loading="lazy" width="600" height="1299" /><span class="hot" style="--x:50%;--y:19.6%"><i>المتدرب</i></span></div></div></div>
+        <div>
+          <span class="tag">كل يوم</span>
+          <h3>متدربيني — وبرنامج كل واحد</h3>
+          <ol class="do">
+            <li>يفتح <strong>متدربيني</strong>: كل مشترك معاه نسبة التزامه وحالته.</li>
+            <li>يدوس على المتدرب ← يكتب له <strong>برنامج التمرين</strong> يوم بيوم (التمارين، المجموعات، التكرار، الراحة) و<strong>النظام الغذائي</strong>.</li>
+            <li>يشوف وزنه وتقدّمه. اليوم اللي من غير تمارين بيظهر للمتدرب <strong>«راحة»</strong>.</li>
+          </ol>
+          <div class="note"><svg><use href="#i-info"/></svg><span>أي تعديل بيوصل للمتدرب في تطبيقه على طول — من غير ورق ولا صور على واتساب.</span></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- FAQ -->
+    <section class="part" id="faq">
+      <div class="part-head"><span class="num">؟</span><h2>لو حصلت مشكلة</h2></div>
+      <p class="sub">أكتر الأسئلة اللي بتيجي في أول أسبوع.</p>
+      <div class="faq">
+        <details><summary>مش لاقي «تثبيت التطبيق» في القايمة</summary><p>على أندرويد لازم يكون Chrome، وعلى آيفون لازم Safari. لو فاتح الرابط من جوه واتساب، دوس على النقط واختار «فتح في المتصفح» الأول. ولو اتثبّت قبل كده الاختيار مش هيظهر — دوّر على الأيقونة على الشاشة.</p></details>
+        <details><summary>المشترك نسي كلمة السر</summary><p>الكاشير يفتح <strong>حسابات المشتركين</strong> ← يدوّر عليه ← <strong>كلمة سر جديدة</strong> وتتبعتله على واتساب. كلمة السر القديمة بتتلغي.</p></details>
+        <details><summary>الموظف نسي كلمة السر أو رمز الدخول</summary><p>الأدمن من <strong>الموظفين</strong> ← <strong>كلمة سر جديدة</strong>. ولو اتقفل من كتر المحاولات الغلط: <strong>فك القفل</strong> من نفس المكان.</p></details>
+        <details><summary>الكاميرا مش بتفتح في تسجيل الحضور</summary><p>لما المتصفح يسأل «السماح باستخدام الكاميرا؟» اختار <strong>سماح</strong>. ولو رفضت بالغلط، افتح إعدادات الموقع في المتصفح واسمح بالكاميرا. ولحد ما تتحل: الإدخال اليدوي بالاسم أو رقم العضوية شغال عادي.</p></details>
+        <details><summary>المشترك غيّر موبايله</summary><p>يدخل من الموبايل الجديد بنفس رقمه وكلمة السر. ولو الرقم نفسه اتغيّر، كلّم الإدارة تعدّله.</p></details>
+        <details><summary>محتاج نت؟</summary><p>أيوه، التطبيق محتاج إنترنت عشان يسجّل الاشتراكات والحضور لحظة بلحظة وكل الأجهزة تشوف نفس الأرقام.</p></details>
+        <details><summary>بياناتي في أمان؟</summary><p>كل موظف بيشوف ويعمل اللي في صلاحيته بس، وكل عملية فلوس متسجّلة باسم اللي عملها ووقتها، ومحدش يقدر يمسحها. والمشترك مش بيشوف غير بياناته هو.</p></details>
+      </div>
+    </section>
+
+    <div class="cta">
+      <h2>واقف في خطوة؟ <span class="y">كلّمنا</span></h2>
+      <p>ابعت لنا على واتساب اسم الخطوة وصورة للشاشة، وهنرد عليك.</p>
+      <div class="row">
+        <a class="btn btn-red wa-link" href="#" data-msg="أهلًا، أنا في النسخة التجريبية لبرنامج الجيم ومحتاج مساعدة في خطوة:"><svg><use href="#i-wa"/></svg>واتساب <span class="ltr">01508613866</span></a>
+        <a class="btn btn-ghost" href="index.html"><svg><use href="#i-back"/></svg>ارجع للبروشور</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="assets/urcod.png" alt="urcod — Your Code. Your Business." width="142" height="44" loading="lazy" />
+        <p class="dev"><span class="en">Programmer &amp; Developer</span><strong>Mahmoud Gamal Eldeen</strong></p>
+      </div>
+      <div class="links">
+        <a class="btn btn-ghost" href="tel:+201508613866"><svg><use href="#i-call"/></svg><span class="ltr">01508613866</span></a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/mahmoud-gamal-eldeen-073967440/" target="_blank" rel="noopener"><svg style="color:#0a66c2"><use href="#i-in"/></svg>LinkedIn</a>
+      </div>
+    </div>
+    <p class="copy" dir="ltr">© <span id="year">2026</span> urcod · Your Code. Your Business.</p>
+  </div>
+</footer>
+
+<dialog id="zoom"><button type="button" aria-label="إغلاق">×</button><img alt="" /></dialog>
+
+<script>
+(() => {
+  const PHONE = '201508613866';
+  document.querySelectorAll('.wa-link').forEach((a) => {
+    a.href = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(a.dataset.msg || '');
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // reveal steps
+  const steps = document.querySelectorAll('.step');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    steps.forEach((s) => io.observe(s));
+  } else steps.forEach((s) => s.classList.add('in'));
+
+  // reading progress + current section in the index
+  const prog = document.getElementById('prog');
+  const links = [...document.querySelectorAll('.toc a')];
+  const parts = links.map((a) => document.querySelector(a.getAttribute('href')));
+  let last = null;
+  const onScroll = () => {
+    const h = document.documentElement;
+    prog.style.transform = 'scaleX(' + Math.min(1, h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) + ')';
+    let cur = 0;
+    parts.forEach((p, i) => { if (p && p.getBoundingClientRect().top < 160) cur = i; });
+    if (cur !== last) {
+      links.forEach((a, i) => a.classList.toggle('on', i === cur));
+      const a = links[cur];
+      const toc = a.parentElement;
+      if (toc.scrollWidth > toc.clientWidth) toc.scrollTo({ left: a.offsetLeft - toc.clientWidth / 2 + a.offsetWidth / 2, behavior: 'smooth' });
+      last = cur;
+    }
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // tap a screenshot to see it big
+  const dlg = document.getElementById('zoom');
+  if (dlg.showModal) {
+    const big = dlg.querySelector('img');
+    document.querySelectorAll('.phone').forEach((p) => {
+      p.setAttribute('role', 'button');
+      p.setAttribute('tabindex', '0');
+      p.setAttribute('aria-label', 'تكبير الصورة');
+      const open = () => { const im = p.querySelector('img'); big.src = im.src; big.alt = im.alt; dlg.showModal(); };
+      p.addEventListener('click', open);
+      p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    });
+    dlg.querySelector('button').addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  }
+})();
+</script>
+</body>
+</html>
